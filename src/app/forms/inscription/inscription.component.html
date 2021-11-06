@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="sendData()" (dblclick)="autoComplete()">
+  <input type="text" formControlName="bestCourse">
+
+  <div *ngIf="controls.bestCourse.touched && controls.bestCourse.invalid">
+    Le champ "bestCourse" est incorrect !
+  </div>
+
+  <input type="number" formControlName="age">
+  <div *ngIf="controls.age.touched && controls.age.invalid">
+    Le champ "age" est incorrect !
+  </div>
+  <input type="submit" [disabled]="form.invalid">
+</form>
