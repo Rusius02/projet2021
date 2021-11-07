@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projet2021';
+  latitude= 50.451714;
+  longitude=3.985653;
 }
