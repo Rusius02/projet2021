@@ -1,1 +1,17 @@
-<p>new-activity works!</p>
+<form [formGroup]="form" (dblclick)="autoComplete()">
+
+  Name  : <input type="text" formControlName="name"><br>
+
+  <div *ngIf="getName().touched && getName().invalid">
+    The "name" field is incorrect!
+  </div><br>
+
+  Place : <input type="text" formControlName="place"><br>
+
+  <div *ngIf="getPlace().touched && getPlace().invalid">
+    The "Place" field is incorrect!
+  </div><br>
+
+
+  <input type="submit" [disabled]="form.invalid">
+</form>

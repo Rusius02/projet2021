@@ -1,20 +1,26 @@
-<body>
 <nav>
   <ul>
-    <li><a [routerLink]="newActivity" [routerLinkActive]="active">Ajouter une activité</a></li>
-    <li><a>Ajouter un post</a></li>
-    <li><a href="#">Compte</a></li>
+    <li><a routerLink="newActivity">Ajouter une activité</a></li>
+    <li><a href="#">Ajouter un post</a></li>
+    <li><a>Compte</a>
+      <ul class="sous">
+        <li><a routerLink="inscription">Inscription</a></li>
+        <li><a routerLink="conexion" >Conexion</a></li>
+      </ul>
+    </li>
     <li><a href="#">A propos</a></li>
   </ul>
 </nav>
 
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10"></agm-map>
 
-<span>
+<!--<span>
   <div>Activité 1</div>
   <div>Activité 2</div>
   <div>Activité 3</div>
-</span>
-<router-outlet></router-outlet>
-</body>
+</span>-->
+
+
+
+
 
