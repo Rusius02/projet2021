@@ -1,8 +1,8 @@
 <body>
 <nav>
   <ul>
-    <li><a href="#">Ajouter une activité</a></li>
-    <li><a href="#">Ajouter un post</a></li>
+    <li><a [routerLink]="newActivity" [routerLinkActive]="active">Ajouter une activité</a></li>
+    <li><a>Ajouter un post</a></li>
     <li><a href="#">Compte</a></li>
     <li><a href="#">A propos</a></li>
   </ul>
@@ -15,6 +15,6 @@
   <div>Activité 2</div>
   <div>Activité 3</div>
 </span>
-
+<router-outlet></router-outlet>
 </body>
 

@@ -4,12 +4,14 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { FormsComponent } from './forms/forms.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
+import { NewActivityComponent } from './forms/new-activity/new-activity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormsComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    NewActivityComponent
   ],
   imports: [
     BrowserModule,
