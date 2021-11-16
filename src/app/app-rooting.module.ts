@@ -5,7 +5,7 @@ import {InscriptionComponent} from "./forms/inscription/inscription.component";
 import {NewActivityComponent} from "./forms/new-activity/new-activity.component";
 
 
-const routes:Routes=[
+const routes: Routes=[
   {path:'', pathMatch:'full', redirectTo:'inscription'},
   {path:'inscription', component: InscriptionComponent},
   {path:'newActivity', component: NewActivityComponent}
