@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./new-activity.component.css']
 })
 export class NewActivityComponent implements OnInit {
+  latitude= 50.451714;
+  longitude=3.985653;
 
   form:FormGroup=this.fb.group({
     name:this.fb.control('',Validators.required),
