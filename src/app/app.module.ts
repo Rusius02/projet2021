@@ -7,13 +7,15 @@ import {AppRootingModule} from "./app-rooting.module";
 import { FormsComponent } from './forms/forms.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
 import { NewActivityComponent } from './forms/new-activity/new-activity.component';
+import { ConnexionComponent } from './forms/connexion/connexion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormsComponent,
     InscriptionComponent,
-    NewActivityComponent
+    NewActivityComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
