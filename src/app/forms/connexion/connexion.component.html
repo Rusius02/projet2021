@@ -1,4 +1,11 @@
-<form >
-  <input type="text">
-  <input type="submit">
+<form [formGroup]="form" (dblclick)="autoComplete()">
+  <p>
+  Email :
+  <input type="email" >
+  </p>
+  Password :
+  <input type="password">
+  <p>
+  <input type="submit" value="Login">
+  </p>
 </form>

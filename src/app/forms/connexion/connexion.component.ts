@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-connexion',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  form: FormGroup = this.fb.group({
 
-  constructor() { }
+
+  });
+
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  autoComplete() {
+
+  }
 }
