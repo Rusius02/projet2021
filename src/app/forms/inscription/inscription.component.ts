@@ -14,7 +14,7 @@ export class InscriptionComponent implements OnInit {
     mail:this.fb.control('',Validators.required),
     sexe:this.fb.control('',Validators.required),
     password:this.fb.control('',Validators.required),
-    dateAnnif:this.fb.control('',[Validators.required,
+    birthDate:this.fb.control('',[Validators.required,
       Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/)]
     ),
   })
