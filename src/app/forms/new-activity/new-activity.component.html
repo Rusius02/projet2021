@@ -1,19 +1,19 @@
 <form [formGroup]="form" (dblclick)="autoComplete()">
 
-  Name  : <input type="text" formControlName="name"><br>
+ <label>Name  :</label> <input type="text" formControlName="name"><br>
 
   <div *ngIf="getName().touched && getName().invalid">
     The "name" field is incorrect!
   </div><br>
 
-  Place : <input type="text" formControlName="place"><br>
+  <label>Place : </label><input type="text" formControlName="place"><br>
 
   <div *ngIf="getPlace().touched && getPlace().invalid">
     The "Place" field is incorrect!
   </div><br>
 
 
-  <input type="submit" [disabled]="form.invalid">
+  <input type="submit" [disabled]="form.invalid" value="Ajouter">
 </form>
 
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10"></agm-map>
