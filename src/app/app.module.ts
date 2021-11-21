@@ -9,6 +9,7 @@ import { InscriptionComponent } from './forms/inscription/inscription.component'
 import { NewActivityComponent } from './forms/new-activity/new-activity.component';
 import { ConnexionComponent } from './forms/connexion/connexion.component';
 import {RouterModule} from "@angular/router";
+import { AboutComponent } from './forms/about/about.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {RouterModule} from "@angular/router";
     FormsComponent,
     InscriptionComponent,
     NewActivityComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
