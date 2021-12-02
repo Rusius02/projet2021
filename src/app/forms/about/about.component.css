@@ -1,0 +1,7 @@
+#bienvenue{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e8d8d8;
+  font-size: 40px;
+}

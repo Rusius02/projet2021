@@ -16,4 +16,7 @@
   <input type="submit" [disabled]="form.invalid" value="Ajouter">
 </form>
 
-<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10"></agm-map>
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">
+  <agm-marker [longitude]="longitude" [latitude]="latitude"></agm-marker>
+  <agm-marker [longitude]="longitude2" [latitude]="latitude2"></agm-marker>
+</agm-map>
