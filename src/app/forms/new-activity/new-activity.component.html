@@ -1,5 +1,6 @@
+<div id="form">
 <form [formGroup]="form" (dblclick)="autoComplete()">
-
+  <div id="inForm">
  <label>Name  :</label> <input type="text" formControlName="name"><br>
 
   <div *ngIf="getName().touched && getName().invalid">
@@ -13,9 +14,10 @@
   </div><br>
 
 
-  <input type="submit" [disabled]="form.invalid" value="Ajouter">
-</form>
+  <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button">
 
+</form>
+</div>
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">
   <agm-marker [longitude]="longitude" [latitude]="latitude"></agm-marker>
   <agm-marker [longitude]="longitude2" [latitude]="latitude2"></agm-marker>

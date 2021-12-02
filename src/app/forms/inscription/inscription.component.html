@@ -1,4 +1,6 @@
+<div id="form">
 <form [formGroup]="form" (dblclick)="autoComplete()">
+  <div id="inForm">
 <br>
  <label> Name  : </label><input type="text" formControlName="name"><br>
 
@@ -44,5 +46,7 @@
   <div *ngIf="getPassword().touched && getPassword().invalid">
     The "password" field is incorrect!
   </div><br>
-  <input type="submit" [disabled]="form.invalid" value="S'inscrire">
+  <input type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">
+    </div>
 </form>
+</div>
