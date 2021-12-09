@@ -10,6 +10,9 @@ import { NewActivityComponent } from './forms/new-activity/new-activity.componen
 import { ConnexionComponent } from './forms/connexion/connexion.component';
 import {RouterModule} from "@angular/router";
 import { AboutComponent } from './forms/about/about.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { ActivityContainerComponent } from './activities/activity-container/activity-container.component';
+import { ActivityListComponent } from './activities/activity-list/activity-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { AboutComponent } from './forms/about/about.component';
     InscriptionComponent,
     NewActivityComponent,
     ConnexionComponent,
-    AboutComponent
+    AboutComponent,
+    ActivitiesComponent,
+    ActivityContainerComponent,
+    ActivityListComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./new-activity.component.css']
 })
 export class NewActivityComponent implements OnInit {
+
+
   latitude= 50.451714;
   longitude=3.985653;
   latitude2= 50.437950;
@@ -26,6 +28,7 @@ export class NewActivityComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
+
   }
   autoComplete() {
 
@@ -35,8 +38,6 @@ export class NewActivityComponent implements OnInit {
     return this.controls['name'];
   }
 
-
-
   get controls(){
     return this.form.controls;
   }
@@ -44,7 +45,6 @@ export class NewActivityComponent implements OnInit {
   getPlace() {
     return this.controls['place']
   }
-
 
 
 }
