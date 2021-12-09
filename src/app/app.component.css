@@ -11,7 +11,9 @@ ul {
 
 li {
   border-right: 1px solid #bbb;
+  border-left: 1px solid #bbb;
   float: left;
+  width: 300px;
 }
 li:last-child {
   border-right: none;
