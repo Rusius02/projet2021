@@ -1,19 +1,57 @@
-<form [formGroup]="form" (dblclick)="autoComplete()">
+<div id="container">
+<div id="map"></div>
 
- <label>Name  :</label> <input type="text" formControlName="name"><br>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNCgVdE00yH0nBRSpM7k9Qm-5qqKTqD0A&callback=initMap&v=weekly"
+  async
+></script>
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">
+  <agm-marker [longitude]="longitude" [latitude]="latitude"></agm-marker>
+  <agm-marker [longitude]="longitude2" [latitude]="latitude2"></agm-marker>
+</agm-map>
+  <div id="activity">
+    <input type="submit"  value="Add activity" id="buttonAddActivity" (click)="hide()">
 
-  <div *ngIf="getName().touched && getName().invalid">
-    The "name" field is incorrect!
-  </div><br>
+  <app-activity-list></app-activity-list>
+  </div>
+</div>
+<div id="form" *ngIf="formHide">
+  <form [formGroup]="form" (dblclick)="autoComplete()">
+    <div id="inForm">
+      <label>Name  :</label> <input type="text" formControlName="name"><br>
 
-  <label>Place : </label><input type="text" formControlName="place"><br>
+      <div *ngIf="getName().touched && getName().invalid">
+        The "name" field is incorrect!
+      </div><br>
 
-  <div *ngIf="getPlace().touched && getPlace().invalid">
-    The "Place" field is incorrect!
-  </div><br>
+      <label>Place : </label><input type="text" formControlName="place"><br>
+
+      <div *ngIf="getPlace().touched && getPlace().invalid">
+        The "Place" field is incorrect!
+      </div><br>
+
+      <label>Date et heure : </label><input type="datetime-local" formControlName="date"><br>
+
+      <div *ngIf="getDate().touched && getDate().invalid">
+        The "Date" field is incorrect!
+      </div><br>
+
+      <label>Choisissez le sport : </label><select formControlName="sport">
+        <option> Football </option>
+        <option> Volleybal </option>
+        <option> Running </option>
+    </select><br>
+
+      <div *ngIf="getSport().touched && getSport().invalid">
+        The "Sport" field is incorrect!
+      </div><br>
+
+      <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button">
+    </div>
+  </form>
+</div>
 
 
-  <input type="submit" [disabled]="form.invalid" value="Ajouter">
-</form>
 
-<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10"></agm-map>
+
