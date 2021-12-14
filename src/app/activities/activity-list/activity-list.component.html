@@ -14,13 +14,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let activity of activities; let i=index;">
+
+    <tr *ngFor="let activity of activities">
       <td>{{activity.id}}</td>
       <td>{{activity.name}}</td>
       <td>{{activity.sport}}</td>
       <td>{{activity.date}}</td>
-
-      <td><button (click)="emitTododeletedByIndex(i)">delete</button></td>
     </tr>
     </tbody>
   </table>
