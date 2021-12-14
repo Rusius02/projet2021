@@ -13,6 +13,10 @@ import { AboutComponent } from './forms/about/about.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { ActivityContainerComponent } from './activities/activity-container/activity-container.component';
 import { ActivityListComponent } from './activities/activity-list/activity-list.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostFormComponent } from './posts/post-form/post-form.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { ActivityListComponent } from './activities/activity-list/activity-list.
     AboutComponent,
     ActivitiesComponent,
     ActivityContainerComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    PostsComponent,
+    PostListComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
