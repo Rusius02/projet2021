@@ -16,7 +16,7 @@ import { ActivityListComponent } from './activities/activity-list/activity-list.
 import { PostsComponent } from './posts/posts.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
