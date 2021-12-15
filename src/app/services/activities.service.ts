@@ -13,11 +13,11 @@ export class ActivitiesService {
   constructor(private httpClient:HttpClient) { }
 
   getAll():Observable<Activity[]>{
-    return this.httpClient.get<Activity[]>(ActivitiesService.API_URL);
+    return this.httpClient.get<Activity[]>(ActivitiesService.API_URL+"/GetAll");
   }
 
   create(activity:Activity):Observable<Activity>{
-    return this.httpClient.post<Activity>(ActivitiesService.API_URL, activity);
+    return this.httpClient.post<Activity>(ActivitiesService.API_URL+"/Create", activity);
   }
 
 }
