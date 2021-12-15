@@ -12,7 +12,7 @@ export class PostFormComponent implements OnInit {
   @Output() postCreated: EventEmitter<Post> = new EventEmitter<Post>();
 
   form:FormGroup = this.fb.group({
-    text : ['', Validators.required]
+    message : ['', Validators.required]
   });
 
   constructor(private fb: FormBuilder) { }
@@ -22,7 +22,7 @@ export class PostFormComponent implements OnInit {
 
   emitPostCreation() {
     this.postCreated.next({
-      text: this.form.value.text,
+      message: this.form.value.message,
       uploadDate:"15/12/2021",
       idUser:1
     });
