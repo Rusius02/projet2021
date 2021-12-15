@@ -8,6 +8,7 @@ import { PostsComponent } from './posts/posts.component';
 
 
 
+
 const routes: Routes=[
   {path:'', pathMatch:'full', redirectTo:'about'},
   {path:'inscription', component: InscriptionComponent},
