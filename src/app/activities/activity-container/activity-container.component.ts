@@ -9,6 +9,7 @@ import {Activity} from "../../services/activity";
 })
 export class ActivityContainerComponent implements OnInit {
 
+
   activities: Activity[]=[];
 
   constructor(private activityService:ActivitiesService) { }
@@ -20,5 +21,6 @@ export class ActivityContainerComponent implements OnInit {
   private getAllActivities(){
     this.activityService.getAll().subscribe(activities=>this.activities=activities);
   }
+
 
 }

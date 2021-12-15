@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivitiesComponent implements OnInit {
 
+  formHide=false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  hide() {
+    this.formHide=!this.formHide;
+  }
 }
