@@ -18,6 +18,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import {HttpClientModule} from "@angular/common/http";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppRootingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule
   ],
   providers: [],

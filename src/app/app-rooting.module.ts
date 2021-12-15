@@ -6,9 +6,6 @@ import { ConnexionComponent } from './forms/connexion/connexion.component';
 import { AboutComponent } from './forms/about/about.component';
 import { PostsComponent } from './posts/posts.component';
 
-
-
-
 const routes: Routes=[
   {path:'', pathMatch:'full', redirectTo:'about'},
   {path:'inscription', component: InscriptionComponent},
