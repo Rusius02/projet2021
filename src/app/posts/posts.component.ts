@@ -9,26 +9,16 @@ import {PostService} from "../services/post.service";
 })
 export class PostsComponent implements OnInit {
 
-  posts:Post[]=[
-    {
-      id: 1,
-      text:"T'es tendu Natacha!",
-      uploadDate:"11/12/2021",
-      idUser: 1
-    },
-    {
-      id: 2,
-      text: "Comment vont je ?",
-      uploadDate: "12/12/2021",
-      idUser: 1
-    }
-  ];
+  posts:Post[]=[];
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
+    this.getAllPosts();
   }
-
+  private getAllPosts(){
+    this.postService.getAll().subscribe(posts => this.posts = posts);
+  }
   sendPost(post: Post) {
     this.postService.create(post)
       .subscribe(post => this.posts.push(post));

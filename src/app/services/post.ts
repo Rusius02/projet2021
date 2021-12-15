@@ -1,6 +1,6 @@
 export interface Post {
   id?:number,
-  text:string,
+  message:string,
   uploadDate:string,
   idUser:number
 }
