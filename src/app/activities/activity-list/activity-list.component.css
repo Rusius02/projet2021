@@ -1,1 +1,20 @@
-
+.tabActivities{
+  color: #ffffff;
+  border-collapse: collapse;
+  min-width: 500px;
+  width: auto;
+  box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+  cursor: pointer;
+  margin: auto;
+  border: 2px solid #000000;
+}
+thead tr{
+  background-color: #333333;
+  text-align: left;
+}
+th, td{
+  padding: 6px 8px;
+}
+tbody tr, td, th{
+  border: 1px solid #5e5d5d;
+}

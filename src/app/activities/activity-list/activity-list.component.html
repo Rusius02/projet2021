@@ -3,7 +3,7 @@
   <b>Aucune activité n'est disponible</b>
 </div>
 <div *ngIf="activities.length>0">
-  <table>
+  <table class="tabActivities">
     <thead>
     <tr>
       <th>Id</th>
@@ -15,11 +15,12 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let activity of activities">
+    <tr *ngFor="let activity of activities; let i=index;">
       <td>{{activity.id}}</td>
       <td>{{activity.name}}</td>
       <td>{{activity.nameSport}}</td>
       <td>{{activity.date}}</td>
+      <td></td>
     </tr>
     </tbody>
   </table>
