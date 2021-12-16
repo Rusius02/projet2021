@@ -59,7 +59,6 @@ input#button {
   border-radius: 25px;
   font-size: 18px;
   color: #e9f4fb;
-  font-weight: 700;
 }
 #button:hover{
   background-color: #18a22f;

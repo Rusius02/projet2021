@@ -1,5 +1,6 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="emitPostCreation()">
   <label>
-    Hello
+    <input type="text" formControlName="message" placeholder="Quoi de neuf ?" >
+    <input type="submit" value="Publier" [disabled]="form.invalid" >
   </label>
 </form>
