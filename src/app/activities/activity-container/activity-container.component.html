@@ -1,1 +1,19 @@
+<div id="container">
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNCgVdE00yH0nBRSpM7k9Qm-5qqKTqD0A&callback=initMap&v=weekly"
+  async
+></script>
+
+<agm-map [longitude]="activities[0].longitude" [latitude]="activities[0].lattitude" [zoom]="10">
+
+  <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
+</agm-map>
+
 <app-activity-list [activities]="activities"></app-activity-list>
+</div>
+<div id="activity">
+  <input type="submit"  value="Ajoutez une activité" id="buttonAddActivity" >
+</div>
