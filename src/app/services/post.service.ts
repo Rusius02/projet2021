@@ -9,7 +9,7 @@ import {Post} from "./post";
 })
 export class PostService {
 
-  private static readonly API_URL: string = environment.apiUrl + "/post";
+  private static readonly API_URL: string = environment.apiUrl + "/Post";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,6 +18,6 @@ export class PostService {
   }
 
   create(post: Post): Observable<Post> {
-    return this.httpClient.post<Post>(PostService.API_URL, post);
+    return this.httpClient.post<Post>(PostService.API_URL + "/Create", post);
   }
 }

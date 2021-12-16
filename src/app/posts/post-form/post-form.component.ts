@@ -21,9 +21,10 @@ export class PostFormComponent implements OnInit {
   }
 
   emitPostCreation() {
+    alert("Post publié");
     this.postCreated.next({
       message: this.form.value.message,
-      uploadDate:"15/12/2021",
+      uploadDate:"15-12-21",
       idUser:1
     });
   }
