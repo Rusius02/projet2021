@@ -10,13 +10,10 @@ export class ActivityListComponent implements OnInit {
 
   @Input() activities:Activity[]=[];
 
-
   constructor() { }
 
   ngOnInit(): void {
-
   }
-
 
 
 }

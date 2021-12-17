@@ -1,2 +1,2 @@
-<app-post-form></app-post-form>
+<app-post-form (postCreated)="sendPost($event);"></app-post-form>
 <app-post-list [posts]="posts"></app-post-list>
