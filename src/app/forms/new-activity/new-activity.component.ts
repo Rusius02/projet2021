@@ -32,10 +32,9 @@ export class NewActivityComponent implements OnInit {
     }
     //patchvalue n'oblige pas de tout initialiser, au contraire de setvalue
     this.form.setValue({
-      name:"Roger",
+      name:"Basketball fury",
       place:"Rue du Roi Albert, 23 7800 Mons",
       date: "2022-01-12T17:12",
-      sport:"Football"
     })
   }
 
