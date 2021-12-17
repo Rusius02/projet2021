@@ -3,6 +3,7 @@ label
   display: block;
   width: 150px;
   float: left;
+  color: #111111;
 }
 
 div#form {
@@ -31,6 +32,10 @@ input#button {
   font-size: 18px;
   color: #e9f4fb;
   font-weight: 700;
+}
+
+{
+
 }
 
 

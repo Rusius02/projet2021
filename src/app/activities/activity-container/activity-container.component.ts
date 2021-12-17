@@ -1,7 +1,6 @@
-import {Component, NgZone, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ActivitiesService} from "../../services/activities.service";
 import {Activity} from "../../services/activity";
-import {MapsAPILoader} from "@agm/core";
 
 @Component({
   selector: 'app-activity-container',
@@ -13,7 +12,6 @@ export class ActivityContainerComponent implements OnInit {
 
   activities: Activity[]=[];
 
-
   constructor(private activityService:ActivitiesService) { }
 
   ngOnInit(): void {
@@ -23,6 +21,7 @@ export class ActivityContainerComponent implements OnInit {
   private getAllActivities(){
     this.activityService.getAll().subscribe(activities=>this.activities=activities);
   }
+
 
 
 

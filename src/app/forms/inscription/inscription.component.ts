@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-inscription',
@@ -32,7 +33,17 @@ export class InscriptionComponent implements OnInit {
   }
 
   autoComplete() {
+    if(environment.production){
+      return;
+    }
+    this.form.setValue({
+      name:"Backerot",
+      firstName:"Roger",
+      mail:"roger@hotmail.com",
+      password:"password1",
+      birthDate: "15-12-1995",
 
+    })
   }
 
 

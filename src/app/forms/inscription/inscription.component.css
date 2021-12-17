@@ -3,13 +3,14 @@ label
   display: block;
   width: 150px;
   float: left;
+  color: #111111;
 }
 div#form {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 200px;
-  color: #e9f4fb;
+  color: #111111;
   font-size: 18px;
 }
 
