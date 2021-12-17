@@ -21,7 +21,7 @@ export class NewActivityComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private sportService:SportService) { }
 
-  @Input() sport:Sport[]=[];
+  @Input() sportzz:Sport[]=[];
 
   ngOnInit(): void {
     this.getAllSport();
