@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/services/post';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-form',
@@ -15,16 +16,20 @@ export class PostFormComponent implements OnInit {
     message : ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  //date = new Date();
+  //formatDate:any;
+
+  constructor(private fb: FormBuilder, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+   // this.formatDate = this.datepipe.transform(this.date,'yyyy-MM-ddTHH:mm:ss.503');
+   // console.log(this.formatDate.toString());
   }
 
   emitPostCreation() {
-    alert("Post publié");
+    alert("'"+this.form.value.message + "' publié");
     this.postCreated.next({
       message: this.form.value.message,
-      uploadDate:"15-12-21",
       idUser:1
     });
   }

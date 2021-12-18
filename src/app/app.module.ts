@@ -17,7 +17,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
