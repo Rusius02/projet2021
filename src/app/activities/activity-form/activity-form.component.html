@@ -1,0 +1,37 @@
+<div id="form">
+  <form [formGroup]="form" (dblclick)="autoComplete()">
+    <div id="inForm">
+      <label>Nom  :</label> <input type="text" formControlName="name"><br>
+
+      <div *ngIf="getName().touched && getName().invalid">
+        Le champ "Nom" est incorrect!
+      </div><br>
+
+      <label>Lieu : </label><input type="text" formControlName="place"><br>
+
+      <div *ngIf="getPlace().touched && getPlace().invalid">
+        Le champ "Lieu" est incorrect!
+      </div><br>
+
+      <label>Date et heure : </label><input type="datetime-local" formControlName="date"><br>
+
+      <div *ngIf="getDate().touched && getDate().invalid">
+        Le champ "Date" est incorrect!
+      </div><br>
+
+      <label>Sport : </label><select formControlName="sport">
+      <option *ngFor="let sport of sports">{{sport.name}}</option>
+    </select><br>
+
+      <div *ngIf="getSport().touched && getSport().invalid">
+        Le champ "Sport" est incorrect!
+      </div><br>
+
+      <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button">
+    </div>
+  </form>
+</div>
+
+
+
+
