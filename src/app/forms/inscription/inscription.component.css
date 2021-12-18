@@ -3,14 +3,14 @@ label
   display: block;
   width: 150px;
   float: left;
-  color: #111111;
+  color: #e9f4fb;
 }
 div#form {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 200px;
-  color: #111111;
+  color: #e9f4fb;
   font-size: 18px;
 }
 
@@ -19,6 +19,7 @@ div#inForm {
   border: solid;
   border-color: #bbbbbb;
   border-radius: 50px;
+  background-color: #5e5d5d;
 }
 
 input#button {
@@ -31,4 +32,9 @@ input#button {
   font-size: 18px;
   color: #e9f4fb;
   font-weight: 700;
+  cursor: pointer;
 }
+#button:hover{
+  background-color: #18a22f;
+}
+

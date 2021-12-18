@@ -3,7 +3,7 @@ label
   display: block;
   width: 150px;
   float: left;
-  color: #111111;
+  color: #e9f4fb;
 }
 
 div#form {
@@ -11,7 +11,6 @@ div#form {
   justify-content: center;
   align-items: center;
   margin-top: 200px;
-  color: #e9f4fb;
   font-size: 18px;
 }
 
@@ -19,6 +18,7 @@ div#inForm {
   padding: 30px;
   border: solid;
   border-color: #bbbbbb;
+  background-color: #5e5d5d;
   border-radius: 50px;
 }
 
@@ -32,10 +32,11 @@ input#button {
   font-size: 18px;
   color: #e9f4fb;
   font-weight: 700;
+  cursor: pointer;
 }
 
-{
-
+#button:hover{
+  background-color: #18a22f;
 }
 
 

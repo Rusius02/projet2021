@@ -14,7 +14,5 @@ export class ActivitiesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  hide() {
-    this.formHide=!this.formHide;
-  }
+
 }

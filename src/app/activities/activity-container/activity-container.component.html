@@ -12,8 +12,8 @@
   <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
 </agm-map>
 
-<app-activity-list [activities]="activities"></app-activity-list>
+
+  <app-activity-form></app-activity-form>
+  <app-activity-list [activities]="activities"></app-activity-list>
 </div>
-<div id="activity">
-  <input type="submit"  value="Ajoutez une activité" id="buttonAddActivity" >
-</div>
+

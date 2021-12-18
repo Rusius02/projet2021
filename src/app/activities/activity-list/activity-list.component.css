@@ -1,12 +1,14 @@
+
 .tabActivities{
   color: #ffffff;
   border-collapse: collapse;
-  min-width: 500px;
-  width: auto;
   box-shadow: 0 5px 50px rgba(0,0,0,0.15);
   cursor: pointer;
-  margin: auto;
   border: 2px solid #000000;
+  margin-top: 75%;
+  margin-left: -50%;
+  font-size: 18px;
+  min-width: 500px;
 }
 thead tr{
   background-color: #333333;
@@ -24,3 +26,4 @@ th{
   border: 1px solid #5e5d5d;
   color: #e9f4fb;
 }
+
