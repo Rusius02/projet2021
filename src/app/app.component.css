@@ -10,9 +10,8 @@ ul {
 }
 
 li {
-
   float: left;
-  width: 300px;
+  width: 20%;
 }
 li:last-child {
   border-right: none;
@@ -32,6 +31,8 @@ li a:hover {
 
 .sous{
   display: none;
+  float: revert;
+ width: 250%;
 }
 nav > ul li:hover .sous{
   display: inline-block;

@@ -17,7 +17,10 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { DatePipe } from '@angular/common';
-import { ActivityFormComponent } from './activities/activity-form/activity-form.component'
+import { ActivityFormComponent } from './activities/activity-form/activity-form.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatDiscussionComponent } from './chat/chat-discussion/chat-discussion.component';
+import { ChatMessageComponent } from './chat/chat-message/chat-message.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { ActivityFormComponent } from './activities/activity-form/activity-form.
     PostListComponent,
     PostFormComponent,
     ActivityFormComponent,
-    ActivityFormComponent
+    ActivityFormComponent,
+    ChatComponent,
+    ChatDiscussionComponent,
+    ChatMessageComponent
   ],
   imports: [
     BrowserModule,

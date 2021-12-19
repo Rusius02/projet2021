@@ -1,4 +1,3 @@
 export interface Sport {
-
-  name:string;
+  name:string
 }
