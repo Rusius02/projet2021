@@ -6,7 +6,7 @@
         <div id="item">
         <div id="user">{{post.idUser}}</div>
         <br>
-        <div id="date">{{post.uploadDate}}</div>
+        <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
         <br>
         <div id="text">{{post.message}}</div>
         </div>
