@@ -28,6 +28,7 @@ export class PostFormComponent implements OnInit {
       message: this.form.value.message,
       idUser:1
     });
+
   }
 
 
