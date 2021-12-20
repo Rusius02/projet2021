@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthserviceService} from "../../services/authservice.service";
+import {environment} from "../../../environments/environment";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-connexion',
@@ -13,13 +15,21 @@ export class ConnexionComponent implements OnInit {
     password:this.fb.control('',Validators.required),
   });
 
+  token:any;
+
   constructor(private fb:FormBuilder, private authService: AuthserviceService) { }
 
   ngOnInit(): void {
   }
 
   autoComplete() {
-
+    if(environment.production){
+      return;
+    }
+    this.form.setValue({
+      pseudo:"TheGamers",
+      password:"mdp1",
+    })
   }
 
   getPseudo() {
@@ -32,14 +42,17 @@ export class ConnexionComponent implements OnInit {
     return this.form.controls;
   }
 
-  loginProcess() {
+  loginProcess():any {
+
     if(this.form.valid){
-      this.authService.login(this.form.value).subscribe(result=>{
-        if(result.success){
+       this.authService.login(this.form.value).subscribe(result=>{
+        this.token=result;
+        if(result!=null){
           console.log(result);
-          alert(result.message);
+          alert("Vous êtes maintenant connecté");
         }else {
-          alert(result.message);
+          console.log(result);
+          alert("Erreur lors de la connexion");
         }
       })
     }

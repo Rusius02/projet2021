@@ -15,7 +15,6 @@ export class AuthserviceService {
   constructor(private http:HttpClient) { }
 
   login(user:User):Observable<any>{
-    let headers=new Headers();
     return this.http.post(AuthserviceService.API_URL,user);
   }
 }
