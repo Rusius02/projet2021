@@ -16,14 +16,10 @@ export class PostFormComponent implements OnInit {
     message : ['', Validators.required]
   });
 
-  //date = new Date();
-  //formatDate:any;
 
   constructor(private fb: FormBuilder, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
-   // this.formatDate = this.datepipe.transform(this.date,'yyyy-MM-ddTHH:mm:ss.503');
-   // console.log(this.formatDate.toString());
   }
 
   emitPostCreation() {
