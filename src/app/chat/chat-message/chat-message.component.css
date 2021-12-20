@@ -20,13 +20,16 @@ div#user
 
 div#text
 {
-  width: min-content;
   font-size: 25px;
-  margin-left: 75%;
   border: solid #bbbbbb;
   border-radius: 10px;
   background-color: #b0b0b0;
   color: #e9f4fb;
+  margin-left: 75%;
+
+  width: 50%;
 }
+
+
 
 
