@@ -10,12 +10,12 @@ import {User} from "./user";
 @Injectable()
 export class AuthserviceService {
 
-  private  static readonly API_URL:string=environment.apiUrl+"/Users";
+  private  static readonly API_URL:string=environment.apiUrl+"/Login";
 
   constructor(private http:HttpClient) { }
 
   login(user:User):Observable<any>{
     let headers=new Headers();
-    return this.http.post(AuthserviceService.API_URL+"/Login",user);
+    return this.http.post(AuthserviceService.API_URL,user);
   }
 }
