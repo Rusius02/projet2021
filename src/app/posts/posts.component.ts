@@ -20,8 +20,7 @@ export class PostsComponent implements OnInit {
     this.postService.getAll().subscribe(posts => this.posts = posts);
   }
   sendPost(post: Post) {
-    this.postService.create(post)
-      .subscribe(post => this.posts.push(post));
+    this.postService.create(post).subscribe(post => this.posts.push(post));
   }
 
 }

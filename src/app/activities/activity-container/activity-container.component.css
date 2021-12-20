@@ -6,8 +6,11 @@
   border-radius: 20px;
 }
 agm-map{
-  height:400px ;
-  min-width: 60%;
+  display: block;
+  justify-content: initial;
+  align-items: center;
+  height:600px ;
+  min-width: 55%;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -24,18 +27,4 @@ app-activity-list{
   margin-top: 40px;
   align-self: flex-start;
 }
-input#buttonAddActivity {
-  border-radius: 50px;
-  height: 50px;
-  border: 1px solid;
-  background: #2691d9;
-  border-radius: 15px;
-  margin-left: 250px;
-  margin-top: 20px;
-  font-size: 18px;
-  color: #e9f4fb;
-  font-weight: 700;
-}
-#buttonAddActivity:hover{
-  background-color: #18a22f;
-}
+

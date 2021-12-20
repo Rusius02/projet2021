@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../environments/environment";
+import {Sport} from "../../services/sport";
+import {SportService} from "../../services/sport.service";
 
 @Component({
-  selector: 'app-new-activity',
-  templateUrl: './new-activity.component.html',
-  styleUrls: ['./new-activity.component.css']
+  selector: 'app-activity-form',
+  templateUrl: './activity-form.component.html',
+  styleUrls: ['./activity-form.component.css']
 })
-export class NewActivityComponent implements OnInit {
+export class ActivityFormComponent implements OnInit {
 
-
-
-
+sports:Sport[] = [];
   form:FormGroup=this.fb.group({
     name:this.fb.control('',Validators.required),
     place:this.fb.control('',Validators.required),
@@ -19,10 +19,12 @@ export class NewActivityComponent implements OnInit {
     sport:this.fb.control('',Validators.required)
   })
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private sportService:SportService) { }
+
+  @Input() sportzz:Sport[]=[];
 
   ngOnInit(): void {
-
+    this.getAllSport();
   }
   autoComplete() {
     if(environment.production){
@@ -30,10 +32,9 @@ export class NewActivityComponent implements OnInit {
     }
     //patchvalue n'oblige pas de tout initialiser, au contraire de setvalue
     this.form.setValue({
-      name:"Roger",
+      name:"Basketball fury",
       place:"Rue du Roi Albert, 23 7800 Mons",
       date: "2022-01-12T17:12",
-      sport:"Football"
     })
   }
 
@@ -52,5 +53,9 @@ export class NewActivityComponent implements OnInit {
 
   getPlace() {
     return this.controls['place']
+  }
+
+  getAllSport(){
+    this.sportService.getAll().subscribe(sports => this.sports=sports);
   }
 }

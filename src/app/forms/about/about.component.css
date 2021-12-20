@@ -1,10 +1,13 @@
 body {
   font-family: cursive;
   font-size: 30px;
+
 }
 #intro{
   background-color: #343434;
   color: #e9f4fb;
+  display: flex;
+  justify-content: center;
 }
 #container{
   margin-left: 150px;

@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AppRootingModule} from "./app-rooting.module";
 import { FormsComponent } from './forms/forms.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
-import { NewActivityComponent } from './forms/new-activity/new-activity.component';
 import { ConnexionComponent } from './forms/connexion/connexion.component';
 import {RouterModule} from "@angular/router";
 import { AboutComponent } from './forms/about/about.component';
@@ -17,14 +16,17 @@ import { PostsComponent } from './posts/posts.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-
+import { DatePipe } from '@angular/common';
+import { ActivityFormComponent } from './activities/activity-form/activity-form.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatDiscussionComponent } from './chat/chat-discussion/chat-discussion.component';
+import { ChatMessageComponent } from './chat/chat-message/chat-message.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     FormsComponent,
     InscriptionComponent,
-    NewActivityComponent,
     ConnexionComponent,
     AboutComponent,
     ActivitiesComponent,
@@ -32,7 +34,12 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     ActivityListComponent,
     PostsComponent,
     PostListComponent,
-    PostFormComponent
+    PostFormComponent,
+    ActivityFormComponent,
+    ActivityFormComponent,
+    ChatComponent,
+    ChatDiscussionComponent,
+    ChatMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

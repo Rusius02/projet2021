@@ -1,0 +1,10 @@
+<div *ngIf="messages.length === 0" id="empty">
+  <b>Il n'y a pas de messages :-/</b>
+</div>
+<div id="list" *ngIf="messages.length>0">
+    <span *ngFor="let message of messages; let i=index;">
+        <div id="date">{{message.uploadDate?.replace('T',' à ')}}</div>
+        <div id="text">{{message.text}}text</div>
+        <div id="user">de {{message.idUser}}</div>
+    </span>
+</div>

@@ -1,0 +1,32 @@
+div#empty
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#date
+{
+  margin-left: 75%;
+  margin-top: 5%;
+  font-size: 15px;
+}
+
+div#user
+{
+  margin-left: 75%;
+  font-size: 15px;
+}
+
+div#text
+{
+  width: min-content;
+  font-size: 25px;
+  margin-left: 75%;
+  border: solid #bbbbbb;
+  border-radius: 10px;
+  background-color: #b0b0b0;
+  color: #e9f4fb;
+}
+
+

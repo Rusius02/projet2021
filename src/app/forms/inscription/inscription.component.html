@@ -2,49 +2,49 @@
 <form [formGroup]="form" (dblclick)="autoComplete()">
   <div id="inForm">
 <br>
- <label> Name  : </label><input type="text" formControlName="name"><br>
+ <label> Nom  : </label><input type="text" formControlName="name"><br>
 
   <div *ngIf="getName().touched && getName().invalid">
-    The "name" field is incorrect!
+    Le champ "Nom" est incorrect!
   </div><br>
 
-  <label>First Name : </label><input type="text" formControlName="firstName"><br>
+  <label>Prénom : </label><input type="text" formControlName="firstName"><br>
 
   <div *ngIf="getFirstName().touched && getFirstName().invalid">
-    The "first name" field is incorrect!
+    Le champ "Prénom" est incorrect!
   </div><br>
 
   <label>Email : </label><input type="email" formControlName="mail"><br>
 
   <div *ngIf="getMail().touched && getMail().invalid">
-    The "mail" field is incorrect!
+    Le champ "Email" est incorrect!
   </div><br>
   <div>
-    <label> Choice of sex ? </label>
+    <label> Choix du sexe  ? </label>
 
-      Man
+      Homme
       <input type="radio" formControlName="sexe"
              value = "Homme" >
 
 
-      Woman
+      Femme
       <input type="radio" formControlName="sexe"
              value = "Femme" >
 
 
-      No Binary
+      Non binaire
       <input type="radio" formControlName="sexe"
              value = "non-Binaire" >
 
   </div><br>
 
-  <label>Birthdate :</label>
+  <label>Date d'anniversaire :</label>
    <input type="date" formControlName="birthDate" value="1990-01-01"><br><br>
 
-  <label>Password :</label> <input type="password" formControlName="password"><br>
+  <label>Mot de passe :</label> <input type="password" formControlName="password"><br>
 
   <div *ngIf="getPassword().touched && getPassword().invalid">
-    The "password" field is incorrect!
+    Le champ "Mot de passe" est incorrect!
   </div><br>
   <input type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">
     </div>
