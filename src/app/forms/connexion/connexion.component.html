@@ -1,17 +1,17 @@
 <div id="form">
-<form [formGroup]="form" (dblclick)="autoComplete()">
+<form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="loginProcess()">
   <div id="inForm">
   <p>
     <label>
       Email :
     </label>
-    <input type="email" >
+    <input type="text" formControlName="pseudo">
   </p>
   <p>
     <label>
       Mot de passe :
     </label>
-    <input type="password">
+    <input type="password" formControlName="password">
   </p>
     <input type="submit" value="Se connecter" id="button">
 </div>
