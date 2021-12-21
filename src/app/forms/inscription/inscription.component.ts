@@ -14,7 +14,7 @@ export class InscriptionComponent implements OnInit {
 
   form:FormGroup=this.fb.group({
     pseudo:this.fb.control('',Validators.required),
-    name:this.fb.control('',Validators.required),
+    lastName:this.fb.control('',Validators.required),
     firstName:this.fb.control('',Validators.required),
     mail:this.fb.control('',Validators.required),
     sexe:this.fb.control('',Validators.required),
@@ -39,7 +39,7 @@ export class InscriptionComponent implements OnInit {
     }
     this.form.patchValue({
       pseudo:"Smourbiff",
-      name:"Backerot",
+      lastName:"Backerot",
       firstName:"Roger",
       mail:"roger@hotmail.com",
       sexe:"Homme",
@@ -49,8 +49,14 @@ export class InscriptionComponent implements OnInit {
   }
 
   sendUser(user: User) {
-    console.log(user);
     console.log("Appel du service qui fait appel à la webApi");
+    user.firstName=this.form.value.firstName;
+    user.LastName=this.form.value.lastName;
+    user.sexe=this.form.value.sexe;
+    user.mail=this.form.value.mail;
+    user.BirthDate=this.form.value.birthDate;
+    user.Pseudo=this.form.value.pseudo;
+    user.Password=this.form.value.password;
     this.userservice.create(user).subscribe(user=>this.users.push(user));
 
   }
@@ -72,7 +78,7 @@ export class InscriptionComponent implements OnInit {
   }
 
   getName() {
-    return this.controls['name'];
+    return this.controls['lastName'];
   }
 
 }
