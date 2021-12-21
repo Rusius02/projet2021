@@ -1,5 +1,5 @@
 export interface Message {
-  id?:number,
+  idMessage?:number,
   text:string,
   uploadDate?:string,
   idUser?:number

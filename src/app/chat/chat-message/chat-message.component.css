@@ -5,31 +5,52 @@ div#empty
   align-items: center;
 }
 
-div#date
+div#dateUser
 {
-  margin-left: 75%;
+  margin-left: 90%;
   margin-top: 5%;
   font-size: 15px;
 }
 
-div#user
+div#dateOther
 {
-  margin-left: 75%;
+  margin-left: 30%;
+  margin-top: 5%;
   font-size: 15px;
 }
 
-div#text
+div#idUser
+{
+  margin-left: 90%;
+  font-size: 15px;
+}
+
+div#idOther
+{
+  margin-left: 30%;
+  font-size: 15px;
+}
+
+div#textUser
 {
   font-size: 25px;
   border: solid #bbbbbb;
   border-radius: 10px;
   background-color: #b0b0b0;
   color: #e9f4fb;
-  margin-left: 75%;
-
   width: 50%;
+  margin-left: 90%;
 }
 
-
+div#textOther
+{
+  font-size: 25px;
+  border: solid #bbbbbb;
+  border-radius: 10px;
+  background-color: #b0b0b0;
+  color: #e9f4fb;
+  width: 50%;
+  margin-left: 30%;
+}
 
 

@@ -17,14 +17,15 @@ export class ChatDiscussionComponent implements OnInit {
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.getAllMessages();
   }
 
-  private getAllMessages(){
-    this.messageService.getAll().subscribe(messages => this.messages = messages);
+  private getAllMessages(idDisc:number){
+    this.messageService.getAll(idDisc).subscribe(messages => this.messages = messages);
   }
 
   show(discussion:Discussion) {
-    alert("discussion "+discussion.name + " ouverte");
+    if (discussion!=null) {
+      this.getAllMessages(discussion.idDiscussion);
+    }
   }
 }
