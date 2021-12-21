@@ -12,7 +12,9 @@ export class MessageService {
   private static readonly API_URL:string=environment.apiUrl+"/Message";
   constructor(private httpClient:HttpClient) { }
 
-  getAll():Observable<Message[]>{
-    return this.httpClient.get<Message[]>(MessageService.API_URL+"/GetAll");
+
+  getAll(idDiscussion:number):Observable<Message[]>{
+    console.log(idDiscussion);
+    return this.httpClient.post<Message[]>(MessageService.API_URL+"/GetAllByIdDiscussion",idDiscussion);
   }
 }

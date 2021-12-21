@@ -1,4 +1,4 @@
 export interface Discussion {
-  id?:number,
+  idDiscussion:number,
   name:string
 }
