@@ -17,6 +17,7 @@ export class UserService {
   }
 
   create(user:User):Observable<User>{
-    return this.httpClient.post<User>(UserService.API_URL, user);
+    return this.httpClient.post<User>(UserService.API_URL+"/Create", user);
+    console.log("Appel de Create de la webApi");
   }
 }

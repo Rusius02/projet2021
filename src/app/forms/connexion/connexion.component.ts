@@ -12,9 +12,12 @@ import {Observable} from "rxjs";
 export class ConnexionComponent implements OnInit {
   form: FormGroup = this.fb.group({
     pseudo:this.fb.control('',Validators.required),
-    password:this.fb.control('',Validators.required),
+    password:this.fb.control('',Validators.compose([
+      Validators.minLength(8),
+      Validators.maxLength(20),
+      Validators.required
+    ]))
   });
-
   token:any;
 
   constructor(private fb:FormBuilder, private authService: AuthserviceService) { }
@@ -28,7 +31,7 @@ export class ConnexionComponent implements OnInit {
     }
     this.form.setValue({
       pseudo:"TheGamers",
-      password:"mdp1",
+      password:"TheGamers1",
     })
   }
 

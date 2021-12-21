@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../services/user";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-forms',
@@ -13,6 +15,7 @@ export class FormsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 
 }

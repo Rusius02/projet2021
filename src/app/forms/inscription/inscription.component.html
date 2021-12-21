@@ -1,52 +1,65 @@
 <div id="form">
-<form [formGroup]="form" (dblclick)="autoComplete()">
-  <div id="inForm">
-<br>
- <label> Nom  : </label><input type="text" formControlName="name"><br>
+  <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="sendUser($event)">
+    <div id="inForm">
+      <br>
 
-  <div *ngIf="getName().touched && getName().invalid">
-    Le champ "Nom" est incorrect!
-  </div><br>
+      <label> Pseudo : </label><input type="text" formControlName="pseudo"><br>
 
-  <label>Prénom : </label><input type="text" formControlName="firstName"><br>
+      <div *ngIf="getName().touched && getName().invalid">
+        Le champ "Pseudo" est incorrect!
+      </div>
+      <br>
 
-  <div *ngIf="getFirstName().touched && getFirstName().invalid">
-    Le champ "Prénom" est incorrect!
-  </div><br>
+      <label> Nom : </label><input type="text" formControlName="name"><br>
 
-  <label>Email : </label><input type="email" formControlName="mail"><br>
+      <div *ngIf="getName().touched && getName().invalid">
+        Le champ "Nom" est incorrect!
+      </div>
+      <br>
 
-  <div *ngIf="getMail().touched && getMail().invalid">
-    Le champ "Email" est incorrect!
-  </div><br>
-  <div>
-    <label> Choix du sexe  ? </label>
+      <label>Prénom : </label><input type="text" formControlName="firstName"><br>
 
-      Homme
-      <input type="radio" formControlName="sexe"
-             value = "Homme" >
+      <div *ngIf="getFirstName().touched && getFirstName().invalid">
+        Le champ "Prénom" est incorrect!
+      </div>
+      <br>
+
+      <label>Email : </label><input type="email" formControlName="mail"><br>
+
+      <div *ngIf="getMail().touched && getMail().invalid">
+        Le champ "Email" est incorrect!
+      </div>
+      <br>
+      <div>
+        <label> Choix du sexe ? </label>
+
+        Homme
+        <input type="radio" formControlName="sexe"
+               value="Homme">
 
 
-      Femme
-      <input type="radio" formControlName="sexe"
-             value = "Femme" >
+        Femme
+        <input type="radio" formControlName="sexe"
+               value="Femme">
 
 
-      Non binaire
-      <input type="radio" formControlName="sexe"
-             value = "non-Binaire" >
+        Non binaire
+        <input type="radio" formControlName="sexe"
+               value="non-Binaire">
 
-  </div><br>
+      </div>
+      <br>
 
-  <label>Date d'anniversaire :</label>
-   <input type="date" formControlName="birthDate" value="1990-01-01"><br><br>
+      <label>Date d'anniversaire :</label>
+      <input type="date" formControlName="birthDate" ><br><br>
 
-  <label>Mot de passe :</label> <input type="password" formControlName="password"><br>
+      <label>Mot de passe :</label> <input type="password" formControlName="password"><br>
 
-  <div *ngIf="getPassword().touched && getPassword().invalid">
-    Le champ "Mot de passe" est incorrect!
-  </div><br>
-  <input type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">
+      <div *ngIf="getPassword().touched && getPassword().invalid">
+        Le champ "Mot de passe" est incorrect!
+      </div>
+      <br>
+      <input type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">
     </div>
-</form>
+  </form>
 </div>

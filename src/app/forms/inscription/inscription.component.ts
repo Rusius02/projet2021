@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../environments/environment";
+import {UserService} from "../../services/user.service";
+import {User} from "../../services/user";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-inscription',
@@ -10,16 +13,18 @@ import {environment} from "../../../environments/environment";
 export class InscriptionComponent implements OnInit {
 
   form:FormGroup=this.fb.group({
+    pseudo:this.fb.control('',Validators.required),
     name:this.fb.control('',Validators.required),
     firstName:this.fb.control('',Validators.required),
     mail:this.fb.control('',Validators.required),
     sexe:this.fb.control('',Validators.required),
     password:this.fb.control('',Validators.required),
-    birthDate:this.fb.control('',[Validators.required,
-      Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/)]
+    birthDate:this.fb.control(['1999-11-09'],Validators.required
     ),
   })
-  constructor(private fb:FormBuilder) { }
+
+  users: User[]=[];
+  constructor(private datepipe: DatePipe,private fb:FormBuilder,private userservice:UserService) { }
 
   ngOnInit(): void {
   }
@@ -28,24 +33,27 @@ export class InscriptionComponent implements OnInit {
     return this.form.controls;
   }
 
-  sendData() {
-
-  }
-
   autoComplete() {
     if(environment.production){
       return;
     }
-    this.form.setValue({
+    this.form.patchValue({
+      pseudo:"Smourbiff",
       name:"Backerot",
       firstName:"Roger",
       mail:"roger@hotmail.com",
-      password:"password1",
-      birthDate: "15-12-1995",
-
+      sexe:"Homme",
+      password:"SmourbiFF2",
+      birthDate: "1999-11-09"
     })
   }
 
+  sendUser(user: User) {
+    console.log(user);
+    console.log("Appel du service qui fait appel à la webApi");
+    this.userservice.create(user).subscribe(user=>this.users.push(user));
+
+  }
 
   getPassword() {
     return this.controls['password'];
@@ -66,4 +74,5 @@ export class InscriptionComponent implements OnInit {
   getName() {
     return this.controls['name'];
   }
+
 }
