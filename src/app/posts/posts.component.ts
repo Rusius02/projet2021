@@ -22,15 +22,30 @@ export class PostsComponent implements OnInit {
   }
   private getAllPosts(){
     this.postService.getAll().subscribe(posts => this.posts = posts);
-    console.log(this.posts);
   }
+
   sendPost(post: Post) {
     this.postService.create(post).subscribe(post => this.posts.push(post));
+
   }
 
   private getAllUsers(){
     this.userService.getAll().subscribe(users => this.users = users);
 
+  }
+
+  deletePost(postDeleted: Post) {
+    this.postService.delete(postDeleted.id || -1)
+      .subscribe(() => {
+        for (let i =0; i <this.posts.length; i++) {
+          const post = this.posts[i];
+
+          if (post.id === postDeleted.id) {
+            this.posts.splice(i, 1);
+            break;
+          }
+        }
+      });
   }
 
 }

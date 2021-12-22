@@ -16,7 +16,7 @@ div#date
   font-size: 18px;
 }
 
-div#user
+span#user
 {
   font-size: 40px;
   font-weight: bold;
@@ -25,4 +25,19 @@ div#user
 div#text
 {
   font-size: 40px;
+}
+
+input[type=submit]
+{
+  padding:3px;
+  border:1px solid #F5C5C5;
+  border-radius:5px;
+  width:15%;
+  box-shadow:1px 1px 2px #C0C0C0 inset;
+  background-color: #8a8a8a;
+  color: white;
+  font-size: 80%;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
 }

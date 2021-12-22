@@ -57,6 +57,7 @@ sports:Sport[] = [];
       nameSport: this.form.value.sport,
       isTournament:true
     });
+    location.reload();
   }
 
   getName() {

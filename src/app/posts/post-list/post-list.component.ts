@@ -11,6 +11,9 @@ export class PostListComponent implements OnInit {
 
   @Input() posts:Post[] = [];
   @Input() users:User[] = [];
+  @Output() postDeleted: EventEmitter<Post> = new EventEmitter<Post>();
+
+  hidden: boolean = true;
 
   constructor() { }
 
@@ -19,4 +22,8 @@ export class PostListComponent implements OnInit {
 
 
 
+  deletePost(post:Post, user:User, i:number) {
+    this.postDeleted.next(this.posts[i]);
+    alert("Post '" + post.message + "' de '"+ user.pseudo + "' supprimé !");
+  }
 }

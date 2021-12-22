@@ -1,2 +1,4 @@
 <app-post-form (postCreated)="sendPost($event);"></app-post-form>
-<app-post-list [posts]="posts" [users]="users"></app-post-list>
+<app-post-list [posts]="posts"
+               [users]="users"
+               (postDeleted)="deletePost($event)"></app-post-list>
