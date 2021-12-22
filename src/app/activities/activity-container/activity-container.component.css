@@ -2,15 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 3px;
-  border-radius: 20px;
 }
 agm-map{
   display: block;
   justify-content: initial;
   align-items: center;
-  height:600px ;
+  height:460px ;
   min-width: 55%;
+
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -21,11 +20,6 @@ agm-map{
   margin: 3px;
   padding: 2px;
 }
-app-activity-list{
-  margin-right: 20px;
-  margin-top: 40px;
-}
-#form-activity{
-  margin-top: 10px;
-}
+
+
 
