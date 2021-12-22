@@ -1,5 +1,5 @@
 <div id="form">
-  <form [formGroup]="form" (dblclick)="autoComplete()">
+  <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="emitActivityCreation()">
     <div id="inForm">
       <label>Nom  :</label> <input type="text" formControlName="name"><br>
 
@@ -11,6 +11,18 @@
 
       <div *ngIf="getPlace().touched && getPlace().invalid">
         Le champ "Lieu" est incorrect!
+      </div><br>
+
+      <label>Latitude : </label><input type="number" formControlName="latitude"><br>
+
+      <div *ngIf="getLatitude().touched">
+        Le champ "Latitude" est incorrect!
+      </div><br>
+
+      <label>Longitude : </label><input type="number" formControlName="longitude"><br>
+
+      <div *ngIf="getLongitude().touched">
+        Le champ "Longitude" est incorrect!
       </div><br>
 
       <label>Date et heure : </label><input type="datetime-local" formControlName="date"><br>

@@ -3,7 +3,8 @@ export interface Activity {
   name:string;
   date:string;
   lieu:string;
-  longitude:number;
   lattitude:number;
+  longitude:number;
   nameSport:string;
+  isTournament:boolean;
 }
