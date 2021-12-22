@@ -12,7 +12,7 @@
     <tbody>
 
     <tr *ngFor="let discussion of discussions; let i=index;">
-      <td (click)="show(discussion)">{{discussion.name}}</td>
+      <td (click)="emitDiscussionCreation(discussion)">{{discussion.name}}</td>
     </tr>
     </tbody>
   </table>

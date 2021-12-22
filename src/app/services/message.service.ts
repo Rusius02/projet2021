@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Message} from "./message";
+import {Discussion} from "./discussion";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,7 @@ export class MessageService {
   constructor(private httpClient:HttpClient) { }
 
 
-  getAll(idDiscussion:number):Observable<Message[]>{
-    console.log(idDiscussion);
-    return this.httpClient.post<Message[]>(MessageService.API_URL+"/GetAllByIdDiscussion",idDiscussion);
+  getAll(discussion:Discussion):Observable<Message[]>{
+    return this.httpClient.post<Message[]>(MessageService.API_URL+"/GetAllByIdDiscussion", discussion);
   }
 }

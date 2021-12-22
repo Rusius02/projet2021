@@ -1,14 +1,19 @@
 <div *ngIf="posts.length === 0">
   <b>Il n'y a pas de posts :-/</b>
 </div>
+
 <div id="list" *ngIf="posts.length > 0">
     <span *ngFor="let post of posts, let i = index;">
-        <div id="item">
-        <div id="user">{{post.idUser}}</div>
-        <br>
-        <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
-        <br>
-        <div id="text">{{post.message}}</div>
-        </div>
+      <span *ngFor="let user of users, let j = index;">
+        <span *ngIf="user.id==post.idUser">
+           <div id="item" >
+              <div id="user">{{user.pseudo}}</div>
+              <br>
+              <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
+              <br>
+              <div id="text">{{post.message}}</div>
+           </div>
+        </span>
+      </span>
     </span>
 </div>

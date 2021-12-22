@@ -13,7 +13,7 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
 
   getAll():Observable<User[]>{
-    return this.httpClient.get<User[]>(UserService.API_URL);
+    return this.httpClient.get<User[]>(UserService.API_URL+"/GetAll");
   }
 
   create(user:User):Observable<User>{
