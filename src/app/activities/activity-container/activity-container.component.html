@@ -11,11 +11,11 @@
 
   <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
 </agm-map>
-  <div>
-    <app-activity-list [activities]="activities"></app-activity-list>
-  </div>
   <div id="form-activity">
     <app-activity-form (activityCreated)="sendActivity($event)"></app-activity-form>
+  </div>
+  <div>
+    <app-activity-list [activities]="activities"></app-activity-list>
   </div>
 
 
