@@ -3,6 +3,8 @@ import {Post} from"../services/post";
 import {PostService} from "../services/post.service";
 import {User} from "../services/user";
 import {UserService} from "../services/user.service";
+import {CommentService} from "../services/comment.service";
+import {Comment} from "../services/comment";
 
 @Component({
   selector: 'app-posts',
@@ -13,20 +15,30 @@ export class PostsComponent implements OnInit {
 
   posts:Post[]=[];
   users: User[]=[];
+  comments: Comment[]=[];
 
-  constructor(private postService: PostService, private userService:UserService) { }
+  constructor(private postService: PostService, private userService:UserService, private commentService:CommentService) { }
 
   ngOnInit(): void {
     this.getAllPosts();
     this.getAllUsers();
+    this.getAllComments();
   }
+
   private getAllPosts(){
     this.postService.getAll().subscribe(posts => this.posts = posts);
   }
 
+  private getAllComments(){
+    this.commentService.getAll().subscribe(comments => this.comments = comments);
+  }
+
   sendPost(post: Post) {
     this.postService.create(post).subscribe(post => this.posts.push(post));
+  }
 
+  sendComment(comment: Comment) {
+    this.commentService.create(comment).subscribe(comment => this.comments.push(comment));
   }
 
   private getAllUsers(){

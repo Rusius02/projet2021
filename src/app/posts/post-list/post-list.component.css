@@ -1,4 +1,4 @@
-div#item
+div#post
 {
   margin-top: 10px;
   margin-left: 25%;
@@ -10,6 +10,38 @@ div#item
   color: #e9f4fb;
 }
 
+div#comment
+{
+  margin-top: 5px;
+  margin-left: 25%;
+  padding: 10px;
+  width:50%;
+  border: solid #bbbbbb;
+  border-radius: 10px;
+  background-color: #918585;
+  color: #e9f4fb;
+}
+
+div#addComment
+{
+  margin-top: 5px;
+  margin-left: 25%;
+  padding: 10px;
+  width:50%;
+  border: solid #bbbbbb;
+  border-radius: 10px;
+  background-color: #d5d5d5;
+  color: #e9f4fb;
+}
+input[type=text]
+{
+  margin-left: 2%;
+  padding:3px;
+  border:1px solid #F5C5C5;
+  border-radius:5px;
+  width:75%;
+  box-shadow:1px 1px 2px #C0C0C0 inset;
+}
 
 div#date
 {
@@ -29,7 +61,7 @@ div#text
 
 input[type=submit]
 {
-  padding:3px;
+  padding:5px;
   border:1px solid #F5C5C5;
   border-radius:5px;
   width:15%;
@@ -39,5 +71,5 @@ input[type=submit]
   font-size: 80%;
   font-weight: bold;
   cursor: pointer;
-  float: right;
+  margin-left: 1%;
 }
