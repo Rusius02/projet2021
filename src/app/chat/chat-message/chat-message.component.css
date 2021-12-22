@@ -11,12 +11,14 @@ div#dateUser
   margin-top: 0%;
   font-size: 15px;
   width: 50%;
+  margin-top: 5%;
 }
 
 div#dateOther
 {
   margin-left: 30%;
   font-size: 15px;
+  margin-top: 5%;
 }
 
 div#idUser

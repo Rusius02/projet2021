@@ -5,7 +5,7 @@
 <div id="list" *ngIf="posts.length > 0">
     <span *ngFor="let post of posts, let i = index;">
       <span *ngFor="let user of users, let j = index;">
-        <span *ngIf="user.id==post.idUser">
+        <span *ngIf="user.id===post.idUser">
            <div id="item" >
               <div id="user">{{user.pseudo}}</div>
               <br>
