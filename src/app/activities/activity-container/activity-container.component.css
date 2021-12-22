@@ -1,7 +1,7 @@
 #container{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  justify-content: space-between;
   border: 3px;
   border-radius: 20px;
 }
@@ -22,9 +22,10 @@ agm-map{
   padding: 2px;
 }
 app-activity-list{
-  width: 40%;
   margin-right: 20px;
   margin-top: 40px;
-  align-self: flex-start;
+}
+#form-activity{
+  margin-top: 10px;
 }
 

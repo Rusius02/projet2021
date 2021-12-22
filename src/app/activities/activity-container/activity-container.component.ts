@@ -23,6 +23,7 @@ export class ActivityContainerComponent implements OnInit {
   }
 
 
-
-
+  sendActivity(activity: Activity) {
+    this.activityService.create(activity).subscribe(activity => this.activities.push(activity));
+  }
 }

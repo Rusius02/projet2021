@@ -18,6 +18,7 @@ export class ActivitiesService {
 
   create(activity:Activity):Observable<Activity>{
     return this.httpClient.post<Activity>(ActivitiesService.API_URL+"/Create", activity);
+    console.log("Appel de Create activity de la webApi");
   }
 
 }

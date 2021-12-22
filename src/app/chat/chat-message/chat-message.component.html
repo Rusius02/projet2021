@@ -3,17 +3,21 @@
 </div>
 <div id="list" *ngIf="messages.length>0">
     <span *ngFor="let message of messages; let i=index;">
+      <span *ngFor="let user of users;">
+        <span *ngIf="message.idUser===user.id">
+
         <div *ngIf="message.idUser===1; else elseBlock">
           <div id="dateUser">{{message.uploadDate?.replace('T',' à ')}}</div>
           <div id="textUser">{{message.text}}</div>
-          <div id="idUser">de {{message.idUser}}</div>
+          <div id="idUser">{{user.pseudo}}</div>
         </div>
       <ng-template #elseBlock>
           <div id="dateOther">{{message.uploadDate?.replace('T',' à ')}}</div>
           <div id="textOther">{{message.text}}</div>
-          <div id="idOther">de {{message.idUser}}</div>
+          <div id="idOther">{{user.pseudo}}</div>
       </ng-template>
 
-
+        </span>
+      </span>
     </span>
 </div>

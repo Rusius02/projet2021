@@ -1,8 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../environments/environment";
 import {Sport} from "../../services/sport";
 import {SportService} from "../../services/sport.service";
+import {Post} from "../../services/post";
+import {Activity} from "../../services/activity";
 
 @Component({
   selector: 'app-activity-form',
@@ -16,11 +18,14 @@ sports:Sport[] = [];
     name:this.fb.control('',Validators.required),
     place:this.fb.control('',Validators.required),
     date:this.fb.control('',Validators.required),
-    sport:this.fb.control('',Validators.required)
+    sport:this.fb.control('',Validators.required),
+    latitude:this.fb.control(0,Validators.required),
+    longitude:this.fb.control(0,Validators.required)
   })
 
   constructor(private fb:FormBuilder, private sportService:SportService) { }
 
+  @Output() activityCreated: EventEmitter<Activity> = new EventEmitter<Activity>();
   @Input() sportzz:Sport[]=[];
 
   ngOnInit(): void {
@@ -31,11 +36,27 @@ sports:Sport[] = [];
       return;
     }
     //patchvalue n'oblige pas de tout initialiser, au contraire de setvalue
-    this.form.setValue({
+    this.form.patchValue({
       name:"Basketball fury",
-      place:"Rue du Roi Albert, 23 7800 Mons",
+      place:"Bd Alfred de Fontaine 330, 6000 Charleroi",
+      latitude: 50.410294408950975,
+      longitude:4.446886413936698,
+      sport:"Volley",
       date: "2022-01-12T17:12",
     })
+  }
+
+  emitActivityCreation() {
+    alert("activité envoyée");
+    this.activityCreated.next({
+      name: this.form.value.name,
+      date: this.form.value.date,
+      lieu: this.form.value.place,
+      lattitude: this.form.value.latitude,
+      longitude: this.form.value.longitude,
+      nameSport: this.form.value.sport,
+      isTournament:true
+    });
   }
 
   getName() {
@@ -57,5 +78,13 @@ sports:Sport[] = [];
 
   getAllSport(){
     this.sportService.getAll().subscribe(sports => this.sports=sports);
+  }
+
+  getLatitude() {
+    return this.controls['latitude']
+  }
+
+  getLongitude() {
+    return this.controls['longitude']
   }
 }
