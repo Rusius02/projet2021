@@ -51,12 +51,12 @@ export class InscriptionComponent implements OnInit {
   sendUser(user: User) {
     console.log("Appel du service qui fait appel à la webApi");
     user.firstName=this.form.value.firstName;
-    user.LastName=this.form.value.lastName;
+    user.lastName=this.form.value.lastName;
     user.sexe=this.form.value.sexe;
     user.mail=this.form.value.mail;
-    user.BirthDate=this.form.value.birthDate;
-    user.Pseudo=this.form.value.pseudo;
-    user.Password=this.form.value.password;
+    user.birthDate=this.form.value.birthDate;
+    user.pseudo=this.form.value.pseudo;
+    user.password=this.form.value.password;
     this.userservice.create(user).subscribe(user=>this.users.push(user));
 
   }
