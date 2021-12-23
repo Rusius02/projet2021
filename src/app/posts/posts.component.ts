@@ -60,4 +60,18 @@ export class PostsComponent implements OnInit {
       });
   }
 
+  deleteComment(commentDeleted: Comment) {
+    this.commentService.delete(commentDeleted.idComment || -1)
+      .subscribe(() => {
+        for (let i =0; i <this.comments.length; i++) {
+          const comment = this.comments[i];
+
+          if (comment.idComment === commentDeleted.idComment) {
+            this.comments.splice(i, 1);
+            break;
+          }
+        }
+      });
+  }
+
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Message} from "../../model/message";
 import {User} from "../../model/user";
 
@@ -17,5 +17,6 @@ export class ChatMessageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

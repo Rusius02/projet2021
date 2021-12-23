@@ -1,5 +1,5 @@
 export interface Comment {
-  id?:number,
+  idComment?:number,
   text:string,
   uploadDate?:string,
   idUser:number

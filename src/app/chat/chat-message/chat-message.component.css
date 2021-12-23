@@ -5,10 +5,9 @@ div#empty
   align-items: center;
 }
 
-
 div#dateUser
 {
-  margin-left: 90%;
+  margin-left: 65%;
   margin-top: 0%;
   font-size: 15px;
   width: 50%;
@@ -24,7 +23,7 @@ div#dateOther
 
 div#idUser
 {
-  margin-left: 90%;
+  margin-left: 65%;
   font-size: 15px;
 }
 
@@ -41,8 +40,8 @@ div#textUser
   border-radius: 10px;
   background-color: #50b6ff;
   color: #e9f4fb;
-  width: 50%;
-  margin-left: 90%;
+  width: 32%;
+  margin-left: 65%;
 }
 
 div#textOther
@@ -52,8 +51,7 @@ div#textOther
   border-radius: 10px;
   background-color: #b9b5b5;
   color: #e9f4fb;
-  width: 50%;
   margin-left: 30%;
+  width: 35%;
 }
-
 

@@ -16,13 +16,16 @@ export class PostListComponent implements OnInit {
   @Input() users:User[] = [];
   @Output() postDeleted: EventEmitter<Post> = new EventEmitter<Post>();
   @Output() commentCreated: EventEmitter<Comment> = new EventEmitter<Comment>();
+  @Output() commentDeleted : EventEmitter<Comment> = new EventEmitter<Comment>();
   @Input() comments:Comment[] = [];
 
   hidden: boolean = true;
+  hiddenComment: boolean = true;
 
   form: FormGroup = this.fb.group({
     text : ['', Validators.required]
-  });
+  })
+
 
   constructor(private fb:FormBuilder) { }
 
@@ -46,8 +49,20 @@ export class PostListComponent implements OnInit {
   }
 
   deletePost(post:Post, user:User, i:number) {
+    let j=0;
     this.postDeleted.next(this.posts[i]);
+    for (let comment of this.comments) {
+
+      if (comment.idPost===post.id) {
+        this.deleteComment(j);
+      }
+      j++;
+    }
     alert("Post '" + post.message + "' de '"+ user.pseudo + "' supprimé !");
+  }
+
+  deleteComment(i:number) {
+    this.commentDeleted.next(this.comments[i]);
   }
 
   changeHidden(post:Post) {
@@ -59,4 +74,15 @@ export class PostListComponent implements OnInit {
     }
     return this.hidden;
   }
+
+  changeHiddenComment(comment: Comment) {
+    if (comment.idUser===1) {
+      this.hiddenComment=false;
+    }
+    else {
+        this.hiddenComment=true;
+    }
+    return this.hiddenComment;
+  }
+
 }
