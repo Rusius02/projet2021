@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../environments/environment";
-import {UserService} from "../../services/user.service";
-import {User} from "../../services/user";
+import {UserService} from "../../services/users/user.service";
+import {User} from "../../model/user";
 import {DatePipe} from "@angular/common";
 
 @Component({

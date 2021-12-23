@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthserviceService} from "../../services/authservice.service";
+import {AuthserviceService} from "../../services/authentification/authservice.service";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-connexion',
@@ -20,7 +21,7 @@ export class ConnexionComponent implements OnInit {
   });
   token:any;
 
-  constructor(private fb:FormBuilder, private authService: AuthserviceService) { }
+  constructor(private fb:FormBuilder, private authService: AuthserviceService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -50,6 +51,7 @@ export class ConnexionComponent implements OnInit {
     if(this.form.valid){
        this.authService.login(this.form.value).subscribe(result=>{
         this.token=result;
+        this.router.navigate(['/about']);
         if(result!=null){
           console.log(result);
           alert("Vous êtes maintenant connecté");

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DiscussionService} from "../services/discussion.service";
-import {Discussion} from "../services/discussion";
+import {DiscussionService} from "../services/discussion/discussion.service";
+import {Discussion} from "../model/discussion";
 
 @Component({
   selector: 'app-chat',

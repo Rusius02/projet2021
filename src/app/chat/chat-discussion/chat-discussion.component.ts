@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Discussion} from "../../services/discussion";
-import {Message} from "../../services/message";
-import {MessageService} from "../../services/message.service";
-import {Post} from "../../services/post";
-import {DiscussionService} from "../../services/discussion.service";
-import {User} from "../../services/user";
-import {UserService} from "../../services/user.service";
+import {Discussion} from "../../model/discussion";
+import {Message} from "../../model/message";
+import {MessageService} from "../../services/message/message.service";
+import {Post} from "../../model/post";
+import {DiscussionService} from "../../services/discussion/discussion.service";
+import {User} from "../../model/user";
+import {UserService} from "../../services/users/user.service";
 
 @Component({
   selector: 'app-chat-discussion',

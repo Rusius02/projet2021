@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from"../services/post";
-import {PostService} from "../services/post.service";
-import {User} from "../services/user";
-import {UserService} from "../services/user.service";
+import {Post} from "../model/post";
+import {PostService} from "../services/posts/post.service";
+import {User} from "../model/user";
+import {UserService} from "../services/users/user.service";
 
 @Component({
   selector: 'app-posts',

@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../environments/environment";
-import {Sport} from "../../services/sport";
-import {SportService} from "../../services/sport.service";
-import {Post} from "../../services/post";
-import {Activity} from "../../services/activity";
+import {Sport} from "../../model/sport";
+import {SportService} from "../../services/sports/sport.service";
+import {Post} from "../../model/post";
+import {Activity} from "../../model/activity";
 
 @Component({
   selector: 'app-activity-form',
