@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Post} from"../../services/post";
-import {User} from "../../services/user";
+
 import {Comment} from "../../services/comment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Post} from "../../model/post";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-post-list',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from"../services/post";
-import {PostService} from "../services/post.service";
-import {User} from "../services/user";
-import {UserService} from "../services/user.service";
 import {CommentService} from "../services/comment.service";
 import {Comment} from "../services/comment";
+import {Post} from "../model/post";
+import {User} from "../model/user";
+import {PostService} from "../services/posts/post.service";
+import {UserService} from "../services/users/user.service";
 
 @Component({
   selector: 'app-posts',
