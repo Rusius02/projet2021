@@ -28,8 +28,11 @@ export class PostFormComponent implements OnInit {
       message: this.form.value.message,
       idUser:1
     });
-
+    this.clear();
+    location.reload();
   }
 
-
+  clear() {
+    this.form.reset();
+  }
 }

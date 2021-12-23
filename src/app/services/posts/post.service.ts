@@ -18,7 +18,10 @@ export class PostService {
   }
 
   create(post: Post): Observable<Post> {
-    console.log(post);
     return this.httpClient.post<Post>(PostService.API_URL + "/Create", post);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.httpClient.delete(PostService.API_URL + "/Delete?id=" + id);
   }
 }

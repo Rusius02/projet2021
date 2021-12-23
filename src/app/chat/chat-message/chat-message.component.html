@@ -2,7 +2,7 @@
   <b>Choissisez une discussion ! </b>
 </div>
 <div id="list" *ngIf="messages.length>0">
-    <span *ngFor="let message of messages; let i=index;">
+    <span *ngFor="let message of messages">
       <span *ngFor="let user of users;">
         <span *ngIf="message.idUser===user.id">
 

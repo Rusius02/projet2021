@@ -6,13 +6,29 @@
     <span *ngFor="let post of posts, let i = index;">
       <span *ngFor="let user of users, let j = index;">
         <span *ngIf="user.id===post.idUser">
-           <div id="item" >
-              <div id="user">{{user.pseudo}}</div>
+           <div id="post" >
+              <span id="user">{{user.pseudo}}</span>
+              <input type="submit" value="Supprimer" [hidden]="hidden" (click)="deletePost(post, user, i)">
               <br>
               <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
               <br>
               <div id="text">{{post.message}}</div>
            </div>
+          <span *ngFor="let comment of comments, let k = index;">
+            <span *ngIf="post.id===comment.idPost">
+              <span *ngFor="let userComment of users, let l = index;">
+                <span *ngIf="comment.idUser===userComment.id">
+                  <div id="comment">{{userComment.pseudo}} : "{{comment.text}}" à {{comment.uploadDate}}</div>
+                </span>
+              </span>
+            </span>
+          </span>
+          <div id="addComment">
+            <form [formGroup]="form" (ngSubmit)="emitCommentCreation(post.id||-1)">
+                 <input type="text" formControlName="text" placeholder="Écrivez un commentaire">
+                <input type="submit" value="Commenter" [disabled]="form.invalid">
+            </form>
+          </div>
         </span>
       </span>
     </span>
