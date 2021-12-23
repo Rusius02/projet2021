@@ -8,7 +8,7 @@
         <span *ngIf="user.id===post.idUser">
            <div id="post" >
               <span id="user">{{user.pseudo}}</span>
-              <input type="submit" value="Supprimer" [hidden]="hidden" (click)="deletePost(post, user, i)">
+              <input type="submit" value="Supprimer" id="delete" [hidden]="changeHidden(post)" (click)="deletePost(post, user, i)">
               <br>
               <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
               <br>

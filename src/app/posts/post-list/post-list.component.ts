@@ -30,7 +30,7 @@ export class PostListComponent implements OnInit {
 
   emitCommentCreation(idPost:number) {
     if (idPost===-1) return;
-    alert("'"+this.form.value.text + "' publié");
+    alert("'"+this.form.value.text + "' envoyé");
     this.commentCreated.next({
       text: this.form.value.text,
       idUser:2,
@@ -47,5 +47,15 @@ export class PostListComponent implements OnInit {
   deletePost(post:Post, user:User, i:number) {
     this.postDeleted.next(this.posts[i]);
     alert("Post '" + post.message + "' de '"+ user.pseudo + "' supprimé !");
+  }
+
+  changeHidden(post:Post) {
+    if (post.idUser===1) {
+        this.hidden=false;
+    }
+    else {
+      this.hidden=true;
+    }
+    return this.hidden;
   }
 }
