@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentService} from "../services/comment.service";
-import {Comment} from "../services/comment";
+import {CommentService} from "../services/comments/comment.service";
+import {Comment} from "../model/comment";
 import {Post} from "../model/post";
 import {User} from "../model/user";
 import {PostService} from "../services/posts/post.service";
