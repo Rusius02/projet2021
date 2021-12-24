@@ -40,6 +40,8 @@ export class ChatDiscussionComponent implements OnInit {
   form:FormGroup = this.fb.group({
     message : ['', Validators.required]
   });
+  //id of online user
+  idUserToken:number = 0;
 
   //hidden or not hidden the sending of messages
   hiddennewM: boolean = true;
@@ -55,10 +57,16 @@ export class ChatDiscussionComponent implements OnInit {
   });
 
 
-  constructor(private messageService: MessageService, private userService:UserService, private fb:FormBuilder, private tokenStorage:TokenStorageService) { }
+  constructor(private messageService: MessageService,
+              private userService:UserService,
+              private fb:FormBuilder,
+              private tokenStorage:TokenStorageService) { }
 
   ngOnInit(): void {
     this.getAllUsers();
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
+    this.idUserToken = Number(tokenDecoded.nameid);
+
   }
 
   //retrieves messages when a conversation is clicked on

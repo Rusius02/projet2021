@@ -3,6 +3,8 @@ import {ActivitiesService} from "../../services/activity/activities.service";
 import {Activity} from "../../model/activity";
 import {ParticipationService} from "../../services/participation/participation.service";
 import {Participation} from "../../model/participation";
+import {UserService} from "../../services/users/user.service";
+import {User} from "../../model/user";
 
 //Contains the list of the activities, the map with the markers and the form
 @Component({
@@ -15,14 +17,19 @@ export class ActivityContainerComponent implements OnInit {
 
   activities: Activity[]=[];
   participations: Participation[]=[];
+  users: User[]=[];
 
 
-  constructor(private activityService:ActivitiesService, private participationService:ParticipationService) { }
+  constructor(private activityService:ActivitiesService,
+              private participationService:ParticipationService,
+              private userService:UserService
+  ) { }
 
   //Get the data from the databases thanks to the 2 methods inside
   ngOnInit(): void {
     this.getAllActivities();
-    this.getAllParticipations()
+    this.getAllParticipations();
+    this.getAllUsers();
   }
 
   //Get the activities from the database and fill the array to display it
@@ -33,6 +40,11 @@ export class ActivityContainerComponent implements OnInit {
   //Get the participations from the database and fill the array to display it
   private getAllParticipations(){
     this.participationService.getAll().subscribe(participations=>this.participations=participations);
+  }
+
+
+  private getAllUsers(){
+    this.userService.getAll().subscribe(users=>this.users=users);
   }
 
   //push an activity to the database

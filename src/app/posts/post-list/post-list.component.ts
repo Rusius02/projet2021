@@ -69,23 +69,27 @@ export class PostListComponent implements OnInit {
 
   changeHidden(post:Post) {
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
-    if (post.idUser==tokenDecoded.nameid) {
+    for (let user of this.users) {
+      if (post.idUser==tokenDecoded.nameid || (user.id == tokenDecoded.nameid && user.role == "admin")) {
         this.hidden=false;
-    }
-    else {
-      this.hidden=true;
+        break;
+      }
+      else {
+        this.hidden=true;
+      }
     }
     return this.hidden;
   }
 
   changeHiddenComment(comment: Comment) {
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
-    console.log( "Bonjour ::::::::::     "  +  comment.idUser===tokenDecoded.nameid);
-    if (comment.idUser==tokenDecoded.nameid) {
-      this.hiddenComment=false;
-    }
-    else {
-        this.hiddenComment=true;
+    for (let user of this.users) {
+      if (comment.idUser == tokenDecoded.nameid || (user.id == tokenDecoded.nameid && user.role == "admin")) {
+        this.hiddenComment = false;
+        break;
+      } else {
+        this.hiddenComment = true;
+      }
     }
     return this.hiddenComment;
   }

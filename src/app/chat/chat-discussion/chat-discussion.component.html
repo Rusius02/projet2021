@@ -12,7 +12,11 @@
     <tbody>
 
     <tr *ngFor="let discussion of discussions; let i=index;">
-      <td (click)="emitDiscussionCreation(discussion)">{{discussion.name}}</td>
+       <span *ngFor="let userDiscussion of userDiscussions">
+          <span *ngIf="discussion.idDiscussion==userDiscussion.idDiscussion && userDiscussion.idUser==idUserToken">
+            <td (click)="emitDiscussionCreation(discussion)">{{discussion.name}}</td>
+          </span>
+       </span>
     </tr>
     <td id="buttonNewDisussion" (click)="hiddenNewDiscussion()">Nouvelle discussion</td>
     </tbody>
@@ -28,7 +32,7 @@
       <select formControlName="user">
         <option [defaultSelected]=""></option>
         <option *ngFor="let user of users">
-          <span *ngIf="user.id!==1">
+          <span *ngIf="user.id!==this.idUserToken">
             {{user.pseudo}}
           </span>
         </option>

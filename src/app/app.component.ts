@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TokenStorageService} from "./services/authentification/token-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   isLoggedIn = false;
   username?: string;
 
-  constructor(private logoutTokenService:TokenStorageService) {
+  constructor(private logoutTokenService:TokenStorageService, private route:Router) {
   }
 
   ngOnInit():void{
@@ -28,7 +29,9 @@ export class AppComponent {
 
   //Clear the session storage, to delete the token already in the storage
   logout() {
+    alert("Vous êtes déconnectés !");
     this.isLoggedIn=!this.isLoggedIn;
     this.logoutTokenService.signOut();
+    this.route.navigate(['/about']);
   }
 }

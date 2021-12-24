@@ -7,6 +7,7 @@ export interface User {
   sexe:string;
   mail:string;
   birthDate:string;
+  role:string;
   password:string;
   token?: string;
 }
