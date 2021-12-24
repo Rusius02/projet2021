@@ -60,7 +60,8 @@ export class ChatDiscussionComponent implements OnInit {
   constructor(private messageService: MessageService,
               private userService:UserService,
               private fb:FormBuilder,
-              private tokenStorage:TokenStorageService) { }
+              private tokenStorage:TokenStorageService
+  ) { }
 
   ngOnInit(): void {
     this.getAllUsers();

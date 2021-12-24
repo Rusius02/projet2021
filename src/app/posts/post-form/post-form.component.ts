@@ -12,12 +12,13 @@ import {TokenStorageService} from "../../services/authentification/token-storage
 
 export class PostFormComponent implements OnInit {
 
+  //Create a new post
   @Output() postCreated: EventEmitter<Post> = new EventEmitter<Post>();
 
+  //Form for new messages
   form:FormGroup = this.fb.group({
     message : ['', Validators.required]
   });
-
 
   constructor(private fb: FormBuilder, public datepipe: DatePipe, private tokenStorage:TokenStorageService) { }
 
@@ -37,6 +38,7 @@ export class PostFormComponent implements OnInit {
     location.reload();
   }
 
+  //Clear form of message
   clear() {
     this.form.reset();
   }

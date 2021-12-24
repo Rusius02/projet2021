@@ -15,7 +15,7 @@ export class MessageService {
   private static readonly API_URL:string=environment.apiUrl+"/Message";
   constructor(private httpClient:HttpClient) { }
 
-  //Get all the discussions from the server
+  //Get all discussions from the server
   getAll(discussion:Discussion):Observable<Message[]>{
     return this.httpClient.post<Message[]>(MessageService.API_URL+"/GetAllByIdDiscussion", discussion);
   }

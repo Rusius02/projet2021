@@ -13,39 +13,49 @@ import {UserService} from "../services/users/user.service";
 })
 export class PostsComponent implements OnInit {
 
+  //All posts
   posts:Post[]=[];
+  //All users
   users: User[]=[];
+  //All comments
   comments: Comment[]=[];
 
   constructor(private postService: PostService, private userService:UserService, private commentService:CommentService) { }
 
+  //Call the getters
   ngOnInit(): void {
     this.getAllPosts();
     this.getAllUsers();
     this.getAllComments();
   }
 
+  //Get all posts
   private getAllPosts(){
     this.postService.getAll().subscribe(posts => this.posts = posts);
   }
 
+  //Get all comments
   private getAllComments(){
     this.commentService.getAll().subscribe(comments => this.comments = comments);
   }
 
+  //Create a new post
   sendPost(post: Post) {
     this.postService.create(post).subscribe(post => this.posts.push(post));
   }
 
+  //Create a new comment
   sendComment(comment: Comment) {
     this.commentService.create(comment).subscribe(comment => this.comments.push(comment));
   }
 
+  //Get all users
   private getAllUsers(){
     this.userService.getAll().subscribe(users => this.users = users);
 
   }
 
+  //hide or not hide post
   deletePost(postDeleted: Post) {
     this.postService.delete(postDeleted.id || -1)
       .subscribe(() => {
@@ -60,6 +70,7 @@ export class PostsComponent implements OnInit {
       });
   }
 
+  //hide or not hide comment
   deleteComment(commentDeleted: Comment) {
     this.commentService.delete(commentDeleted.idComment || -1)
       .subscribe(() => {
