@@ -101,22 +101,19 @@ export class ChatDiscussionComponent implements OnInit {
         this.usersDiscussion.push(user.pseudo);
       }
     }
-    for (let discussion of this.allDiscussions) {
-      if (discussion.name===this.formDiscussion.value.name) {
-        for (let userDis of this.usersDiscussion) {
-          for (let user of this.users) {
-            if(userDis===user.pseudo) {
-              this.userDiscussionCreated.next({
-                idUser:user.id||-1,
-                idDiscussion:discussion.idDiscussion||-1
-              });
-            }
-          }
+    for (let userDis of this.usersDiscussion) {
+      for (let user of this.users) {
+        if(userDis===user.pseudo) {
+          this.userDiscussionCreated.next({
+            idUser:user.id||-1,
+            idDiscussion:(this.allDiscussions[this.allDiscussions.length-1].idDiscussion||-2)+1
+          });
         }
       }
     }
     this.clearDiscussion();
-    //location.reload();
+    this.usersDiscussion.pop();
+    location.reload();
   }
 
   //empties the fields of the message form

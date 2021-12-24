@@ -39,7 +39,7 @@
     <div *ngFor="let user of usersDiscussion">
       {{user}}
     </div>
-      <div *ngIf="this.usersDiscussion.length>1 && this.getName()">
+      <div *ngIf="this.usersDiscussion.length>0 && this.getName()">
         <input type="submit" id="addDiscussion" value="Créer la nouvelle discussion" (click)="emitDiscussionAdd()">
       </div>
     </form>
