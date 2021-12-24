@@ -1,2 +1,4 @@
-<app-chat-discussion [discussions]="discussions"></app-chat-discussion>
+<app-chat-discussion [discussions]="discussions"
+                     (messageCreated)="sendMessage($event);"
+></app-chat-discussion>
 

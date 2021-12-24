@@ -17,4 +17,9 @@ export class MessageService {
   getAll(discussion:Discussion):Observable<Message[]>{
     return this.httpClient.post<Message[]>(MessageService.API_URL+"/GetAllByIdDiscussion", discussion);
   }
+
+  create(message: Message): Observable<Message> {
+    return this.httpClient.post<Message>(MessageService.API_URL + "/Create", message);
+  }
+
 }

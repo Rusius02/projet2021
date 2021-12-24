@@ -20,4 +20,9 @@ export class CommentService {
   getAll(): Observable<Comment[]> {
     return this.httpClient.get<Comment[]>(CommentService.API_URL + "/GetAll");
   }
+
+  delete(id: number): Observable<any> {
+    return this.httpClient.delete(CommentService.API_URL + "/DeleteById" + id);
+  }
+
 }
