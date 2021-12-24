@@ -1,4 +1,5 @@
 <app-chat-discussion [discussions]="discussions"
+                     [userDiscussions]="userDiscussions"
                      [allDiscussions]="allDiscussions"
                      (messageCreated)="sendMessage($event);"
                      (discussionCreated)="sendDiscussion($event)"

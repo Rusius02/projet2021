@@ -17,6 +17,7 @@ export class ChatDiscussionComponent implements OnInit {
 
   //User discussions
   @Input() discussions:Discussion[] = [];
+  @Input() userDiscussions:UserDiscussion[] = [];
   //All discussions
   @Input() allDiscussions:Discussion[] = [];
   //Add messages

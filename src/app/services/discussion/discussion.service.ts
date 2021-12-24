@@ -14,7 +14,7 @@ export class DiscussionService {
   constructor(private httpClient: HttpClient) { }
 
   getDiscussion(): Observable<Discussion[]> {
-    return this.httpClient.get<Discussion[]>(DiscussionService.API_URL + "/GetAllByIdDiscussion");
+    return this.httpClient.get<Discussion[]>(DiscussionService.API_URL + "/GetAll");
   }
 
   create(discussion: Discussion) {

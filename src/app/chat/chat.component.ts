@@ -23,10 +23,14 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.getDiscussions();
     this.getAllDiscussions();
+    this.getUserDiscussions();
   }
 
   private getDiscussions(){
     this.discussionService.getDiscussion().subscribe(discussions => this.discussions = discussions);
+  }
+  private getUserDiscussions(){
+    this.userDiscussionService.getUserDiscussions().subscribe(userDiscussions => this.userDiscussions= userDiscussions);
   }
 
   private getAllDiscussions(){
