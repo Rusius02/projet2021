@@ -4,6 +4,7 @@ import {AuthserviceService} from "../../services/authentification/authservice.se
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../../services/authentification/token-storage.service";
 
 @Component({
   selector: 'app-connexion',
@@ -20,12 +21,42 @@ export class ConnexionComponent implements OnInit {
     ]))
   });
   token:any;
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
 
-  constructor(private fb:FormBuilder, private authService: AuthserviceService,private router:Router) { }
+  constructor(private fb:FormBuilder, private authService: AuthserviceService,private router:Router, private  tokenStorage:TokenStorageService) { }
 
   ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
   }
 
+  loginProcess():any {
+    if(this.form.valid){
+      this.authService.login(this.form.value).subscribe(data=>{
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+        this.router.navigate(['/about']);
+        if(data!=null){
+          alert("Vous êtes maintenant connecté");
+        }else {
+          console.log(data);
+          alert("Erreur lors de la connexion");
+        }
+      })
+    }
+  }
+  reloadPage(): void {
+    window.location.reload();
+  }
   autoComplete() {
     if(environment.production){
       return;
@@ -46,20 +77,5 @@ export class ConnexionComponent implements OnInit {
     return this.form.controls;
   }
 
-  loginProcess():any {
 
-    if(this.form.valid){
-       this.authService.login(this.form.value).subscribe(result=>{
-        this.token=result;
-        this.router.navigate(['/about']);
-        if(result!=null){
-          console.log(result);
-          alert("Vous êtes maintenant connecté");
-        }else {
-          console.log(result);
-          alert("Erreur lors de la connexion");
-        }
-      })
-    }
-  }
 }

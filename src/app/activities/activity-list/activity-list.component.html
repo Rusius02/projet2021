@@ -11,6 +11,7 @@
       <th>Sport</th>
       <th>Date</th>
       <th>Adresse</th>
+      <th>Tournoi</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
       <td>{{activity.nameSport}}</td>
       <td>{{activity.date}}</td>
       <td>{{activity.lieu}}</td>
+      <td><input type="checkbox" [(ngModel)]="activity.isTournament" disabled></td>
     </tr>
     </tbody>
   </table>

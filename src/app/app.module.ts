@@ -15,12 +15,14 @@ import { ActivityListComponent } from './activities/activity-list/activity-list.
 import { PostsComponent } from './posts/posts.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { DatePipe } from '@angular/common';
 import { ActivityFormComponent } from './activities/activity-form/activity-form.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatDiscussionComponent } from './chat/chat-discussion/chat-discussion.component';
 import { ChatMessageComponent } from './chat/chat-message/chat-message.component'
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {JwtInterceptor} from "./_helpers";
 
 @NgModule({
   declarations: [
@@ -52,7 +54,14 @@ import { ChatMessageComponent } from './chat/chat-message/chat-message.component
     HttpClientModule,
     RouterModule
   ],
-  providers: [DatePipe],
+  providers:  [DatePipe, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi:true
+  },
+    JwtHelperService],
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

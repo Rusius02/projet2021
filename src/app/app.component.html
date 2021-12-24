@@ -1,12 +1,13 @@
 <nav>
   <ul>
-    <li><a routerLink="activity">Activité</a></li>
-    <li><a routerLink="post">Post</a></li>
-    <li><a routerLink="chat">Message</a></li>
+    <li><a routerLink="activity">Activités</a></li>
+    <li><a routerLink="post">Posts</a></li>
+    <li><a routerLink="chat">Messages</a></li>
     <li><a>Compte</a>
       <ul class="sous">
         <li><a routerLink="inscription">Inscription</a></li>
         <li><a routerLink="connexion" >Connexion</a></li>
+        <li><a (click)="logout()" >Déconnexion</a></li>
       </ul>
     </li>
     <li><a href="#">A propos</a></li>
