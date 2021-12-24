@@ -38,8 +38,9 @@ export class ConnexionComponent implements OnInit {
   loginProcess():any {
     if(this.form.valid){
       this.authService.login(this.form.value).subscribe(data=>{
-        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveToken(data);
         this.tokenStorage.saveUser(data);
+
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
@@ -48,7 +49,6 @@ export class ConnexionComponent implements OnInit {
         if(data!=null){
           alert("Vous êtes maintenant connecté");
         }else {
-          console.log(data);
           alert("Erreur lors de la connexion");
         }
       })
