@@ -18,7 +18,7 @@ export class UserDiscussionService {
     return this.httpClient.post<UserDiscussion>(UserDiscussionService.API_URL + "/Create", userDiscussion);
   }
 
-  getUserDiscussions(): Observable<Discussion[]> {
-    return this.httpClient.get<Discussion[]>(UserDiscussionService.API_URL + "/GetAll");
+  getUserDiscussions(): Observable<UserDiscussion[]> {
+    return this.httpClient.get<UserDiscussion[]>(UserDiscussionService.API_URL + "/GetAll");
   }
 }
