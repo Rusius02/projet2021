@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {Comment} from "./comment";
+import {environment} from "../../../environments/environment";
+import {Comment} from "../../model/comment";
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +20,9 @@ export class CommentService {
   getAll(): Observable<Comment[]> {
     return this.httpClient.get<Comment[]>(CommentService.API_URL + "/GetAll");
   }
+
+  delete(id: number): Observable<any> {
+    return this.httpClient.delete(CommentService.API_URL + "/DeleteById" + id);
+  }
+
 }

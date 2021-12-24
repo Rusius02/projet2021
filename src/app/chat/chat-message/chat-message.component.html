@@ -1,6 +1,5 @@
-<div *ngIf="messages.length === 0" id="empty">
-  <b>Choissisez une discussion ! </b>
-</div>
+
+
 <div id="list" *ngIf="messages.length>0">
     <span *ngFor="let message of messages">
       <span *ngFor="let user of users;">
@@ -11,13 +10,13 @@
           <div id="textUser">{{message.text}}</div>
           <div id="idUser">{{user.pseudo}}</div>
         </div>
-      <ng-template #elseBlock>
-          <div id="dateOther">{{message.uploadDate?.replace('T',' à ')}}</div>
-          <div id="textOther">{{message.text}}</div>
-          <div id="idOther">{{user.pseudo}}</div>
-      </ng-template>
-
+        <ng-template #elseBlock>
+            <div id="dateOther">{{message.uploadDate?.replace('T',' à ')}}</div>
+            <div id="textOther">{{message.text}}</div>
+            <div id="idOther">{{user.pseudo}}</div>
+        </ng-template>
         </span>
       </span>
     </span>
+
 </div>

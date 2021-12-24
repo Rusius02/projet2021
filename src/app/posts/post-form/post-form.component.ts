@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Post } from 'src/app/services/post';
+import { Post } from 'src/app/model/post';
 import { DatePipe } from '@angular/common';
 
 @Component({

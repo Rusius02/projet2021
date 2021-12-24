@@ -2,7 +2,7 @@
 <div *ngIf="discussions.length === 0" id="empty">
   <b>Il n'y a pas de discussions :-/</b>
 </div>
-<div id ="id" *ngIf="discussions.length>0">
+<span id ="id" *ngIf="discussions.length>0">
   <table class="tabDiscussions">
     <thead>
     <tr>
@@ -14,8 +14,43 @@
     <tr *ngFor="let discussion of discussions; let i=index;">
       <td (click)="emitDiscussionCreation(discussion)">{{discussion.name}}</td>
     </tr>
+    <td id="buttonNewDisussion" (click)="hiddenNewDiscussion()">Nouvelle discussion</td>
     </tbody>
   </table>
+</span>
+
+  <span id="newDiscussion" [hidden]="hiddenNewD">
+    <form [formGroup]="formDiscussion">
+      <div id="title"> Nouvelle Discussion !</div>
+      <div>Nom de la discussion : </div>
+      <div><input type="text" formControlName="name" id="nameDiscussion"></div>
+      <div>Ajout d'utilisateurs : </div>
+      <select formControlName="user">
+        <option [defaultSelected]=""></option>
+        <option *ngFor="let user of users">
+          <span *ngIf="user.id!==1">
+            {{user.pseudo}}
+          </span>
+        </option>
+      </select>
+      <input type="submit" value="Ajouter" (click)="addUser()">
+
+    <div>Membres : </div>
+    <div *ngFor="let user of usersDiscussion">
+      {{user}}
+    </div>
+      <div *ngIf="this.usersDiscussion.length>0 && this.getName()">
+        <input type="submit" id="addDiscussion" value="Créer la nouvelle discussion" (click)="emitDiscussionAdd()">
+      </div>
+    </form>
+  </span>
+
+  <form [formGroup]="form" (ngSubmit)="emitMessageCreation(this.idDiscussion)"  [hidden]="hiddennewM">
+    <label>
+      <input type="text" id="newMessage" formControlName="message" placeholder="Envoyez un message">
+      <input type="submit" value="Envoyer" [disabled]="form.invalid">
+    </label>
+  </form>
 </div>
-<app-chat-message [messages]="messages" [users]="users"></app-chat-message>
-</div>
+
+<app-chat-message [messages]="messages" [users]="users" [hidden]="hiddenMessage"></app-chat-message>

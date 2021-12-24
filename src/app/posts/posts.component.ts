@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from"../services/post";
-import {PostService} from "../services/post.service";
-import {User} from "../services/user";
-import {UserService} from "../services/user.service";
-import {CommentService} from "../services/comment.service";
-import {Comment} from "../services/comment";
+import {CommentService} from "../services/comments/comment.service";
+import {Comment} from "../model/comment";
+import {Post} from "../model/post";
+import {User} from "../model/user";
+import {PostService} from "../services/posts/post.service";
+import {UserService} from "../services/users/user.service";
 
 @Component({
   selector: 'app-posts',
@@ -54,6 +54,20 @@ export class PostsComponent implements OnInit {
 
           if (post.id === postDeleted.id) {
             this.posts.splice(i, 1);
+            break;
+          }
+        }
+      });
+  }
+
+  deleteComment(commentDeleted: Comment) {
+    this.commentService.delete(commentDeleted.idComment || -1)
+      .subscribe(() => {
+        for (let i =0; i <this.comments.length; i++) {
+          const comment = this.comments[i];
+
+          if (comment.idComment === commentDeleted.idComment) {
+            this.comments.splice(i, 1);
             break;
           }
         }

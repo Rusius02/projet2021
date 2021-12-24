@@ -8,7 +8,7 @@
         <span *ngIf="user.id===post.idUser">
            <div id="post" >
               <span id="user">{{user.pseudo}}</span>
-              <input type="submit" value="Supprimer" [hidden]="hidden" (click)="deletePost(post, user, i)">
+              <input type="submit" value="Supprimer" id="delete" [hidden]="changeHidden(post)" (click)="deletePost(post, user, i)">
               <br>
               <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
               <br>
@@ -18,7 +18,9 @@
             <span *ngIf="post.id===comment.idPost">
               <span *ngFor="let userComment of users, let l = index;">
                 <span *ngIf="comment.idUser===userComment.id">
-                  <div id="comment">{{userComment.pseudo}} : "{{comment.text}}" à {{comment.uploadDate}}</div>
+                  <div id="comment">{{userComment.pseudo}} : "{{comment.text}}" à {{comment.uploadDate}}
+                      <input type="submit" value="Supprimer" id="deleteComment" [hidden]="changeHiddenComment(comment)" (click)="deleteComment(k)">
+                  </div>
                 </span>
               </span>
             </span>

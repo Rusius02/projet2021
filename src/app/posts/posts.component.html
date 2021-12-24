@@ -2,6 +2,7 @@
 <app-post-list [posts]="posts"
                [users]="users"
                [comments]="comments"
-               (postDeleted)="deletePost($event)"
+               (postDeleted)="deletePost($event);"
                (commentCreated)="sendComment($event);"
+               (commentDeleted)="deleteComment($event);"
 ></app-post-list>

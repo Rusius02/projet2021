@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Message} from "../../services/message";
-import {User} from "../../services/user";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Message} from "../../model/message";
+import {User} from "../../model/user";
 
 
 @Component({
@@ -17,5 +17,6 @@ export class ChatMessageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

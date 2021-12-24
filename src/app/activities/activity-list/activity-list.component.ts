@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Activity} from "../../services/activity";
+import {Activity} from "../../model/activity";
 
 @Component({
   selector: 'app-activity-list',
