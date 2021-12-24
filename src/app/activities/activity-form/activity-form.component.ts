@@ -19,8 +19,6 @@ sports:Sport[] = [];
     place:this.fb.control('',Validators.required),
     date:this.fb.control('',Validators.required),
     sport:this.fb.control('',Validators.required),
-    latitude:this.fb.control(0,Validators.required),
-    longitude:this.fb.control(0,Validators.required),
     isTournament:this.fb.control(true, Validators.required)
   })
 

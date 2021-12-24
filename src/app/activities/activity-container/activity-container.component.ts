@@ -3,6 +3,7 @@ import {ActivitiesService} from "../../services/activity/activities.service";
 import {Activity} from "../../model/activity";
 import {ParticipationService} from "../../services/participation/participation.service";
 import {Participation} from "../../model/participation";
+import {Post} from "../../model/post";
 
 @Component({
   selector: 'app-activity-container',
@@ -37,6 +38,20 @@ export class ActivityContainerComponent implements OnInit {
 
   sendParticipation(participation: Participation) {
     this.participationService.create(participation).subscribe(participation => this.participations.push(participation));
+  }
+
+  deleteActivity(activityDeleted: Activity) {
+    this.activityService.delete(activityDeleted.id || -1)
+      .subscribe(() => {
+        for (let i =0; i <this.activities.length; i++) {
+          const activity = this.activities[i];
+
+          if (activity.id === activityDeleted.id) {
+            this.activities.splice(i, 1);
+            break;
+          }
+        }
+      });
   }
 
 }

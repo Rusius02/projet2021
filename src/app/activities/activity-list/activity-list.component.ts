@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Activity} from "../../model/activity";
 import {Participation} from "../../model/participation";
+import {Comment} from "../../model/comment";
 
 @Component({
   selector: 'app-activity-list',
@@ -12,6 +13,7 @@ export class ActivityListComponent implements OnInit {
   @Input() activities:Activity[]=[];
   @Input() participations:Participation[]=[];
   @Output() participationCreated: EventEmitter<Participation> = new EventEmitter<Participation>();
+  @Output() activityDeleted : EventEmitter<Activity> = new EventEmitter<Activity>();
 
   booleanParticipation: boolean = false;
 
@@ -40,6 +42,12 @@ export class ActivityListComponent implements OnInit {
         idUser:1,
         idActivity:activity.id||-1
       });
+
+  }
+
+  deleteActivity(activity : Activity, i:number) {
+    alert("Suppresion de " + activity.name);
+    this.activityDeleted.next(this.activities[i]);
 
   }
 }

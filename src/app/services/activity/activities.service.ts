@@ -20,4 +20,8 @@ export class ActivitiesService {
     return this.httpClient.post<Activity>(ActivitiesService.API_URL+"/Create", activity);
   }
 
+  delete(id: number): Observable<any> {
+    return this.httpClient.delete(ActivitiesService.API_URL + "/Delete/" + id);
+  }
+
 }

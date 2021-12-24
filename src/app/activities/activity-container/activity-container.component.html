@@ -18,6 +18,7 @@
     <app-activity-list [activities]="activities"
                        [participations]="participations"
                        (participationCreated)="sendParticipation($event);"
+                       (activityDeleted)="deleteActivity($event);"
     ></app-activity-list>
   </div>
 

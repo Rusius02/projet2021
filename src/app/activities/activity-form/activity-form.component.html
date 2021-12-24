@@ -1,37 +1,29 @@
 <div id="form">
   <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="emitActivityCreation()">
     <div id="inForm">
-      <label>Nom  :</label> <input type="text" formControlName="name"><br>
+      <label>Nom* :</label> <input type="text" formControlName="name"><br>
 
       <div *ngIf="getName().touched && getName().invalid">
         Le champ "Nom" est incorrect!
       </div><br>
 
-      <label>Lieu : </label><input type="text" formControlName="place"><br>
+      <label>Lieu* : </label><input type="text" formControlName="place"><br>
 
       <div *ngIf="getPlace().touched && getPlace().invalid">
         Le champ "Lieu" est incorrect!
       </div><br>
 
-      <label>Latitude : </label><input type="number" formControlName="latitude"><br>
+      <label>Latitude : </label><input type="number" formControlName="latitude"><br><br>
 
-      <div *ngIf="getLatitude().touched">
-        Le champ "Latitude" est incorrect!
-      </div><br>
+      <label>Longitude : </label><input type="number" formControlName="longitude"><br><br>
 
-      <label>Longitude : </label><input type="number" formControlName="longitude"><br>
-
-      <div *ngIf="getLongitude().touched">
-        Le champ "Longitude" est incorrect!
-      </div><br>
-
-      <label>Date et heure : </label><input type="datetime-local" formControlName="date"><br>
+      <label>Date et heure* : </label><input type="datetime-local" formControlName="date"><br>
 
       <div *ngIf="getDate().touched && getDate().invalid">
         Le champ "Date" est incorrect!
       </div><br>
 
-      <label>Sport : </label><select formControlName="sport">
+      <label>Sport* : </label><select formControlName="sport">
       <option *ngFor="let sport of sports">{{sport.name}}</option>
     </select><br>
 
@@ -39,9 +31,10 @@
         Le champ "Sport" est incorrect!
       </div><br>
 
-      <label>Tournoi ? : </label><input type="checkbox" formControlName="isTournament"><br>
+      <label>Tournoi* ? : </label><input type="checkbox" formControlName="isTournament"><br>
 
-      <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button">
+      <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button"><br><br>
+      *Obligatoirs
     </div>
   </form>
 </div>
