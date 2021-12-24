@@ -12,18 +12,39 @@
       <th>Date</th>
       <th>Adresse</th>
       <th>Tournoi</th>
+      <th>Participation</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr *ngFor="let activity of activities; let i=index;">
+    <tr *ngFor="let activity of activities;">
       <td>{{activity.id}}</td>
       <td>{{activity.name}}</td>
       <td>{{activity.nameSport}}</td>
       <td>{{activity.date}}</td>
       <td>{{activity.lieu}}</td>
       <td><input type="checkbox" [(ngModel)]="activity.isTournament" disabled></td>
+      <td>
+        <span *ngIf="booleanParticipationC()"></span>
+
+        <span *ngFor="let participation of this.participations;">
+
+          <span *ngIf="booleanParticipation===false">
+
+            <span *ngIf="booleanParticipationChange(participation, activity)">
+              <span>OUI</span>
+            </span>
+
+          </span>
+
+        </span>
+
+        <span *ngIf="booleanParticipation===false">
+              <input type="button" value="Participer" (click)="participate(activity)">
+        </span>
+      </td>
     </tr>
+
     </tbody>
   </table>
 </div>

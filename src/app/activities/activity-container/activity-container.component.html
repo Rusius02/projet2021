@@ -15,7 +15,10 @@
     <app-activity-form (activityCreated)="sendActivity($event)"></app-activity-form>
   </div>
   <div>
-    <app-activity-list [activities]="activities"></app-activity-list>
+    <app-activity-list [activities]="activities"
+                       [participations]="participations"
+                       (participationCreated)="sendParticipation($event);"
+    ></app-activity-list>
   </div>
 
 
