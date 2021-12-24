@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
 import {Observable} from "rxjs";
 
+
+//Eventually here for upgrade of the website
 @Injectable({
   providedIn: 'root'
 })

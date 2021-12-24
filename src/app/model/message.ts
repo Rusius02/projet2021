@@ -1,3 +1,4 @@
+//Describe the structure of the Message
 export interface Message {
   idMessage?:number,
   text:string,

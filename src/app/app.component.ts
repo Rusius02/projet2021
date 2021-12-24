@@ -25,6 +25,8 @@ export class AppComponent {
       this.username = user.username;
     }
   }
+
+  //Clear the session storage, to delete the token already in the storage
   logout() {
     this.isLoggedIn=!this.isLoggedIn;
     this.logoutTokenService.signOut();

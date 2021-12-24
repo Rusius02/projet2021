@@ -6,6 +6,7 @@ import {SportService} from "../../services/sports/sport.service";
 import {Post} from "../../model/post";
 import {Activity} from "../../model/activity";
 
+//Just a form to add a new activity
 @Component({
   selector: 'app-activity-form',
   templateUrl: './activity-form.component.html',
@@ -13,7 +14,10 @@ import {Activity} from "../../model/activity";
 })
 export class ActivityFormComponent implements OnInit {
 
-sports:Sport[] = [];
+  //we have the sports from the database
+  sports:Sport[] = [];
+
+  //Initialize the form with its controllers
   form:FormGroup=this.fb.group({
     name:this.fb.control('',Validators.required),
     place:this.fb.control('',Validators.required),
@@ -24,10 +28,12 @@ sports:Sport[] = [];
 
   constructor(private fb:FormBuilder, private sportService:SportService) { }
 
+  //Throw the activity to the pipe of data
   @Output() activityCreated: EventEmitter<Activity> = new EventEmitter<Activity>();
-  @Input() sportzz:Sport[]=[];
+
 
   ngOnInit(): void {
+    //Call the method to get the sports from the database
     this.getAllSport();
   }
 
@@ -44,7 +50,7 @@ sports:Sport[] = [];
     });
   }
 
-  //Récupère les différents sports présent en base de données
+  //get the sports from the database
   getAllSport(){
     this.sportService.getAll().subscribe(sports => this.sports=sports);
   }
@@ -78,12 +84,11 @@ sports:Sport[] = [];
     return this.controls['longitude']
   }
 
-  //Complète les champs, actif tant que l'app n'est pas en production
+  //Complete the form if it's not in production
   autoComplete() {
     if(environment.production){
       return;
     }
-    //patchvalue n'oblige pas de tout initialiser, au contraire de setvalue
     this.form.patchValue({
       name:"Basketball fury",
       place:"Bd Alfred de Fontaine 330, 6000 Charleroi",

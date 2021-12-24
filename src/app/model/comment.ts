@@ -1,3 +1,4 @@
+//Describe the structure of the comment
 export interface Comment {
   idComment?:number,
   text:string,

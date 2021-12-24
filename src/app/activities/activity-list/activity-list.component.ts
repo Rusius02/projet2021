@@ -3,6 +3,7 @@ import {Activity} from "../../model/activity";
 import {Participation} from "../../model/participation";
 import {Comment} from "../../model/comment";
 
+//Contains the list of the activities
 @Component({
   selector: 'app-activity-list',
   templateUrl: './activity-list.component.html',

@@ -20,15 +20,18 @@ export class ChatComponent implements OnInit {
 
   constructor(private discussionService: DiscussionService, private messageService: MessageService, private userDiscussionService: UserDiscussionService) { }
 
+
   ngOnInit(): void {
     this.getDiscussions();
     this.getAllDiscussions();
     this.getUserDiscussions();
   }
 
+  //Get the discussions from the database
   private getDiscussions(){
     this.discussionService.getDiscussion().subscribe(discussions => this.discussions = discussions);
   }
+
   private getUserDiscussions(){
     this.userDiscussionService.getUserDiscussions().subscribe(userDiscussions => this.userDiscussions= userDiscussions);
   }

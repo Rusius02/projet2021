@@ -10,8 +10,10 @@ import {DatePipe} from "@angular/common";
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
+//If the user is not known he can register to the website
 export class InscriptionComponent implements OnInit {
 
+  //Initialize the form
   form:FormGroup=this.fb.group({
     pseudo:this.fb.control('',Validators.required),
     lastName:this.fb.control('',Validators.required),
@@ -48,6 +50,7 @@ export class InscriptionComponent implements OnInit {
     })
   }
 
+  //Send the user got from the form to the server
   sendUser(user: User) {
     console.log("Appel du service qui fait appel à la webApi");
     user.firstName=this.form.value.firstName;
@@ -58,7 +61,6 @@ export class InscriptionComponent implements OnInit {
     user.pseudo=this.form.value.pseudo;
     user.password=this.form.value.password;
     this.userservice.create(user).subscribe(user=>this.users.push(user));
-
   }
 
   getPassword() {

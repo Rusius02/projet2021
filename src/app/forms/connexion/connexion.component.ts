@@ -35,6 +35,7 @@ export class ConnexionComponent implements OnInit {
     }
   }
 
+  //Use the authservice to login to the database
   loginProcess():any {
     if(this.form.valid){
       this.authService.login(this.form.value).subscribe(data=>{

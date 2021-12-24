@@ -21,11 +21,10 @@ export class AuthserviceService {
   constructor(private router:Router,private http:HttpClient) {
   }
 
+  //Send a user to the server and it will check if the user is in the database
+  //And if yes it will return a Jwt token
   login(user:User):Observable<any>{
     return  this.http.post<User>(AuthserviceService.API_URL, user,httpOptions);
   }
 
-  logout() {
-
-  }
 }

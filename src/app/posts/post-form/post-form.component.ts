@@ -9,6 +9,7 @@ import {TokenStorageService} from "../../services/authentification/token-storage
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.css']
 })
+
 export class PostFormComponent implements OnInit {
 
   @Output() postCreated: EventEmitter<Post> = new EventEmitter<Post>();
@@ -23,7 +24,9 @@ export class PostFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Send the post to the service
   emitPostCreation() {
+    //Get the token thanks to the service token storage
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
     alert("'"+this.form.value.message + "' publié");
     this.postCreated.next({
