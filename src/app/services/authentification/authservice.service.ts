@@ -22,7 +22,6 @@ export class AuthserviceService {
   }
 
   login(user:User):Observable<any>{
-    console.log(this.http.post<User>(AuthserviceService.API_URL, user,httpOptions));
     return  this.http.post<User>(AuthserviceService.API_URL, user,httpOptions);
   }
 

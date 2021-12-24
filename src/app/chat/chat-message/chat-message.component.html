@@ -5,7 +5,7 @@
       <span *ngFor="let user of users;">
         <span *ngIf="message.idUser===user.id">
 
-        <div *ngIf="message.idUser===1; else elseBlock">
+        <div *ngIf="message.idUser===idUserToken; else elseBlock">
           <div id="dateUser">{{message.uploadDate?.replace('T',' à ')}}</div>
           <div id="textUser">{{message.text}}</div>
           <div id="idUser">{{user.pseudo}}</div>

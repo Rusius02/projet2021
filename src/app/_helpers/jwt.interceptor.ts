@@ -16,12 +16,9 @@ export class JwtInterceptor implements HttpInterceptor {
       Authorization: `Bearer ${this.token.getToken()}`,
       'Content-Type': 'application/json'
     };
-    console.log("Le token n'est pas null"+this.token.getToken());
     request = request.clone({
       setHeaders: headers
     });
-
-    console.log("Interceptor");
     return next.handle(request);
   }
 }

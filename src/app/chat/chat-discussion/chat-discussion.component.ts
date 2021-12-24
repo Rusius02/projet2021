@@ -6,6 +6,7 @@ import {User} from "../../model/user";
 import {UserService} from "../../services/users/user.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserDiscussion} from "../../model/user-discussion";
+import {TokenStorageService} from "../../services/authentification/token-storage.service";
 
 @Component({
   selector: 'app-chat-discussion',
@@ -53,7 +54,7 @@ export class ChatDiscussionComponent implements OnInit {
   });
 
 
-  constructor(private messageService: MessageService, private userService:UserService, private fb:FormBuilder) { }
+  constructor(private messageService: MessageService, private userService:UserService, private fb:FormBuilder, private tokenStorage:TokenStorageService) { }
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -76,10 +77,11 @@ export class ChatDiscussionComponent implements OnInit {
 
   //creates a message
   emitMessageCreation(idDiscussion:number) {
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
     alert("'"+this.form.value.message + "' envoyé");
     this.messageCreated.next({
       text: this.form.value.message,
-      idUser:1,
+      idUser:Number(tokenDecoded.nameid),
       idDiscussion:idDiscussion
     });
     this.clear();
@@ -96,8 +98,9 @@ export class ChatDiscussionComponent implements OnInit {
 
   //creates a userDiscussion (join between user and discussion) for a user to participate in a discussion
   emitUserDiscussion(){
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
     for (let user of this.users) {
-      if (user.id===1) {
+      if (user.id===Number(tokenDecoded.nameid)) {
         this.usersDiscussion.push(user.pseudo);
       }
     }

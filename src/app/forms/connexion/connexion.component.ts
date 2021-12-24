@@ -39,7 +39,7 @@ export class ConnexionComponent implements OnInit {
     if(this.form.valid){
       this.authService.login(this.form.value).subscribe(data=>{
         this.tokenStorage.saveToken(data);
-        this.tokenStorage.saveUser(data);
+        var tokenDecoded = this.tokenStorage.getDecodedToken( data)
 
 
         this.isLoginFailed = false;
@@ -53,6 +53,7 @@ export class ConnexionComponent implements OnInit {
         }
       })
     }
+
   }
   reloadPage(): void {
     window.location.reload();

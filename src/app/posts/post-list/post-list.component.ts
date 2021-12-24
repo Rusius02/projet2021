@@ -4,6 +4,7 @@ import {Comment} from "../../model/comment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Post} from "../../model/post";
 import {User} from "../../model/user";
+import {TokenStorageService} from "../../services/authentification/token-storage.service";
 
 @Component({
   selector: 'app-post-list',
@@ -27,17 +28,18 @@ export class PostListComponent implements OnInit {
   })
 
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private tokenStorage:TokenStorageService) { }
 
   ngOnInit(): void {
   }
 
   emitCommentCreation(idPost:number) {
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
     if (idPost===-1) return;
     alert("'"+this.form.value.text + "' envoyé");
     this.commentCreated.next({
       text: this.form.value.text,
-      idUser:2,
+      idUser:Number(tokenDecoded.nameid),
       idPost:idPost
     });
     this.clear();
@@ -66,7 +68,8 @@ export class PostListComponent implements OnInit {
   }
 
   changeHidden(post:Post) {
-    if (post.idUser===1) {
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
+    if (post.idUser==tokenDecoded.nameid) {
         this.hidden=false;
     }
     else {
@@ -76,7 +79,9 @@ export class PostListComponent implements OnInit {
   }
 
   changeHiddenComment(comment: Comment) {
-    if (comment.idUser===1) {
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
+    console.log( "Bonjour ::::::::::     "  +  comment.idUser===tokenDecoded.nameid);
+    if (comment.idUser==tokenDecoded.nameid) {
       this.hiddenComment=false;
     }
     else {
