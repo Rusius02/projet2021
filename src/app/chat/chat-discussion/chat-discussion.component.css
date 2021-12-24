@@ -57,7 +57,7 @@ label
   margin-top: 20px;
   margin-left: 45%;
   padding: 30px;
-  width: 280%;
+  width: 250%;
   border: solid #bbbbbb;
   border-radius: 10px;
   background-color: #5e5d5d;
@@ -65,7 +65,7 @@ label
   font-size: 20px;
 }
 
-input[type=text]
+input#newMessage
 {
   margin-left: 1%;
   padding:3px;
@@ -73,6 +73,11 @@ input[type=text]
   border-radius:5px;
   box-shadow:1px 1px 2px #C0C0C0 inset;
   min-width: 80%;
+}
+
+input#newDiscussion
+{
+
 }
 
 
@@ -89,6 +94,41 @@ input[type=submit]
   font-size: 80%;
   font-weight: bold;
   cursor: pointer;
+  min-width: 80px;
+}
+
+input[type=submit]#addDiscussion
+{
+  min-width: 225px;
+}
+
+span#newDiscussion
+{
+  margin-left:-250px;
+  margin-top: 250px;
+  padding: 30px;
+  border: solid #bbbbbb;
+  border-radius: 10px;
+  background-color: #5e5d5d;
+  color: #e9f4fb;
+  font-size: 20px;
+  width: 300px;
+}
+
+.app-chat-message
+{
+
+}
+
+div#title
+{
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+td#buttonNewDisussion
+{
+  background-color: #777777;
 }
 
 

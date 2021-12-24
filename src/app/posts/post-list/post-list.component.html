@@ -19,7 +19,7 @@
               <span *ngFor="let userComment of users, let l = index;">
                 <span *ngIf="comment.idUser===userComment.id">
                   <div id="comment">{{userComment.pseudo}} : "{{comment.text}}" à {{comment.uploadDate}}
-                    <input type="submit" value="Supprimer" id="deleteComment" [hidden]="changeHiddenComment(comment)" (click)="deleteComment(k)">
+                      <input type="submit" value="Supprimer" id="deleteComment" [hidden]="changeHiddenComment(comment)" (click)="deleteComment(k)">
                   </div>
                 </span>
               </span>

@@ -3,8 +3,6 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Discussion} from "../../model/discussion";
-import {User} from "../../model/user";
-import {UserService} from "../users/user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +15,13 @@ export class DiscussionService {
 
   getDiscussion(): Observable<Discussion[]> {
     return this.httpClient.get<Discussion[]>(DiscussionService.API_URL + "/GetAllByIdDiscussion");
+  }
+
+  create(discussion: Discussion) {
+    return this.httpClient.post<Discussion>(DiscussionService.API_URL + "/Create", discussion);
+  }
+
+  getAllDiscussion(): Observable<Discussion[]> {
+    return this.httpClient.get<Discussion[]>(DiscussionService.API_URL + "/GetAll");
   }
 }

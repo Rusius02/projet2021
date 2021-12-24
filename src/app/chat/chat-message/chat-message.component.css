@@ -1,7 +1,8 @@
 div#empty
 {
   display: flex;
-  justify-content: space-around;
+  margin-left: 60%;
+  justify-content: stretch;
   align-items: center;
 }
 
