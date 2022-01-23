@@ -53,10 +53,10 @@
       <label>Date d'anniversaire :</label>
       <input type="date" formControlName="birthDate" ><br><br>
 
-      <label>Mot de passe :</label> <input type="password" formControlName="password"><br>
+      <label>Mot de passe</label><input type="password" formControlName="password"><br>
 
       <div *ngIf="getPassword().touched && getPassword().invalid">
-        Le champ "Mot de passe" est incorrect!
+        Le champ "Mot de passe" est incorrect! Entre 8 et 20 caractères
       </div>
       <br>
       <input type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">

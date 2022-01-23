@@ -20,7 +20,11 @@ export class InscriptionComponent implements OnInit {
     firstName:this.fb.control('',Validators.required),
     mail:this.fb.control('',Validators.required),
     sexe:this.fb.control('',Validators.required),
-    password:this.fb.control('',Validators.required),
+    password:this.fb.control('',Validators.compose([
+      Validators.minLength(8),
+      Validators.maxLength(20),
+      Validators.required
+    ])),
     birthDate:this.fb.control(['1999-11-09'],Validators.required
     ),
   })
@@ -61,6 +65,7 @@ export class InscriptionComponent implements OnInit {
     user.pseudo=this.form.value.pseudo;
     user.password=this.form.value.password;
     this.userservice.create(user).subscribe(user=>this.users.push(user));
+    alert("Votre inscription est validée ! Vous pouvez maintenant vous connecter !");
   }
 
   getPassword() {
