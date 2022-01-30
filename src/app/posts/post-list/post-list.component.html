@@ -2,7 +2,7 @@
   <b>Il n'y a pas de posts :-/</b>
 </div>
 
-<div id="list" *ngIf="posts.length > 0">
+<div id="list" *ngIf="posts.length > 0 && setHiddenPost()">
     <span *ngFor="let post of posts, let i = index;">
       <span *ngFor="let user of users, let j = index;">
         <span *ngIf="user.id===post.idUser">

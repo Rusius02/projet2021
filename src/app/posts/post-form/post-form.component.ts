@@ -29,13 +29,18 @@ export class PostFormComponent implements OnInit {
   emitPostCreation() {
     //Get the token thanks to the service token storage
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
-    alert("'"+this.form.value.message + "' publié");
-    this.postCreated.next({
-      message: this.form.value.message,
-      idUser:Number(tokenDecoded.nameid)
-    });
-    this.clear();
-    location.reload();
+    if (tokenDecoded==null) {
+      alert("Vous n'êtes pas connecté !");
+    }
+    else {
+      alert("'" + this.form.value.message + "' publié");
+      this.postCreated.next({
+        message: this.form.value.message,
+        idUser: Number(tokenDecoded.nameid)
+      });
+      this.clear();
+      location.reload();
+    }
   }
 
   //Clear form of message

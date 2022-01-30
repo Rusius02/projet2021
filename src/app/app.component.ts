@@ -27,11 +27,24 @@ export class AppComponent {
     }
   }
 
+  ngDoCheck() : void {
+    this.isLoggedIn = !!this.logoutTokenService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.logoutTokenService.getUser();
+      this.roles = user.roles;
+
+      this.username = user.username;
+    }
+  }
+
   //Clear the session storage, to delete the token already in the storage
   logout() {
-    alert("Vous êtes déconnectés !");
-    this.isLoggedIn=!this.isLoggedIn;
-    this.logoutTokenService.signOut();
-    this.route.navigate(['/about']);
+    if (this.isLoggedIn) {
+      alert("Vous êtes déconnectés !");
+      this.isLoggedIn=!this.isLoggedIn;
+      this.logoutTokenService.signOut();
+      this.route.navigate(['/about']);
+    }
   }
 }

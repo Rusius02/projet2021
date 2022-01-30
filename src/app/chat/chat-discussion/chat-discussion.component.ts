@@ -142,13 +142,19 @@ export class ChatDiscussionComponent implements OnInit {
 
   //Show or hide items when clicking on 'new discussion'.
   hiddenNewDiscussion() {
-    if(this.hiddenNewD) {
-      this.hiddenNewD=false;
-      this.hiddenMessage=true;
-      this.hiddennewM = true;
-    }
-    else {
-      this.hiddenNewD=true;
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
+    if (tokenDecoded==null) {
+      alert("Vous n'êtes pas connecté !");
+
+    } else {
+      if(this.hiddenNewD) {
+        this.hiddenNewD=false;
+        this.hiddenMessage=true;
+        this.hiddennewM = true;
+      }
+      else {
+        this.hiddenNewD=true;
+      }
     }
   }
 

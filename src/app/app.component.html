@@ -6,8 +6,8 @@
     <li><a>Compte</a>
       <ul class="sous">
         <li><a routerLink="inscription">Inscription</a></li>
-        <li><a routerLink="connexion" >Connexion</a></li>
-        <li><a (click)="logout()" >Déconnexion</a></li>
+        <li><a routerLink="connexion" [hidden]="isLoggedIn">Connexion</a></li>
+        <li><a (click)="logout()" [hidden]="!isLoggedIn">Déconnexion</a></li>
       </ul>
     </li>
     <li><a href="#">A propos</a></li>
@@ -18,11 +18,7 @@
 
 
 
-<!--<span>
-  <div>Activité 1</div>
-  <div>Activité 2</div>
-  <div>Activité 3</div>
-</span>-->
+
 
 
 

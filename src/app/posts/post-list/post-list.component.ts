@@ -30,6 +30,8 @@ export class PostListComponent implements OnInit {
   //boolean to hide or not hide comments
   hiddenComment: boolean = true;
 
+  hiddenPost: boolean = true;
+
   //Form for create a new comment
   form: FormGroup = this.fb.group({
     text : ['', Validators.required]
@@ -94,6 +96,7 @@ export class PostListComponent implements OnInit {
   }
 
   //hide or not hide comment
+
   changeHiddenComment(comment: Comment) {
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
     for (let user of this.users) {
@@ -107,4 +110,12 @@ export class PostListComponent implements OnInit {
     return this.hiddenComment;
   }
 
+  setHiddenPost() {
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
+    console.log(tokenDecoded);
+    if(tokenDecoded ==null) {
+      this.hiddenPost = false;
+    }
+    return this.hiddenPost;
+  }
 }

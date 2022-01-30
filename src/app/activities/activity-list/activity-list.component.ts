@@ -56,12 +56,17 @@ export class ActivityListComponent implements OnInit {
 
   //Add a participation
   participate(activity:Activity) {
-    alert("Vous participez à " + activity.name + ", qui aura lieu le " + activity.date + " à l'adresse : " + activity.lieu);
+    var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken());
+    if(tokenDecoded == null) {
+      alert("Vous n'êtes pas connecté !");
+    }
+    else {
+      alert("Vous participez à " + activity.name + ", qui aura lieu le " + activity.date + " à l'adresse : " + activity.lieu);
       this.participationCreated.next({
         idUser:this.idUserToken,
         idActivity:activity.id||-1
       });
-
+    }
   }
 
   //Delete activity if user is admin
@@ -75,4 +80,6 @@ export class ActivityListComponent implements OnInit {
 
 
   }
+
+
 }
