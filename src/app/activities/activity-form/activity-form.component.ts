@@ -23,7 +23,9 @@ export class ActivityFormComponent implements OnInit {
     place:this.fb.control('',Validators.required),
     date:this.fb.control('',Validators.required),
     sport:this.fb.control('',Validators.required),
-    isTournament:this.fb.control(true, Validators.required)
+    isTournament:this.fb.control(true, Validators.required),
+    lattitude: this.fb.control(''),
+    longitude: this.fb.control('')
   })
 
   constructor(private fb:FormBuilder, private sportService:SportService) { }
@@ -43,7 +45,7 @@ export class ActivityFormComponent implements OnInit {
       name: this.form.value.name,
       date: this.form.value.date,
       lieu: this.form.value.place,
-      lattitude: this.form.value.latitude,
+      lattitude: this.form.value.lattitude,
       longitude: this.form.value.longitude,
       nameSport: this.form.value.sport,
       isTournament: this.form.value.isTournament
@@ -92,8 +94,8 @@ export class ActivityFormComponent implements OnInit {
     this.form.patchValue({
       name:"Basketball fury",
       place:"Bd Alfred de Fontaine 330, 6000 Charleroi",
-      latitude: 50.410294408950975,
-      longitude:4.446886413936698,
+      lattitude: 50.420777,
+      longitude:4.166669,
       sport:"Volley",
       date: "2022-01-12T17:12",
       isTournament: false
