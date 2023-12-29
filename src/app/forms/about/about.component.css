@@ -4,44 +4,31 @@ body {
 
 }
 #intro{
-  background-color: #343434;
-  color: #e9f4fb;
   display: flex;
   justify-content: center;
 }
-#container{
-  margin-left: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  opacity: 0.7;
+.image{
+  min-width: 400px;
+  min-height: 267px;
 }
 #imagebasket{
   background-image: url("images/basket.jpg");
-  min-width: 400px;
-  min-height: 300px;
 }
 #imagefoot{
   background-image: url("images/foot.jpg");
-  min-width: 400px;
-  min-height: 267px;
 }
 #imagerugby{
   background-image: url("images/rugby.jpg");
-  min-width: 400px;
-  min-height: 267px;
 }
 #imagevolley{
   background-image: url("images/volley.jpg");
-  min-width: 400px;
-  min-height: 267px;
 }
 #imagebadminton{
   background-image: url("images/badminton.jpg");
-  min-width: 400px;
-  min-height: 267px;
 }
 #imagerunning{
   background-image: url("images/running.jpg");
-  min-width: 400px;
-  min-height: 267px;
+}
+#imagecyclisme{
+  background-image: url("images/cyclisme.jpg");
 }
