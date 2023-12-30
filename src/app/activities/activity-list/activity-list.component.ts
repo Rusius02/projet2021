@@ -90,6 +90,10 @@ export class ActivityListComponent implements OnInit {
     return undefined
   }
 
+  is_admin(){
+    return this.current_user()?.role == "admin"? true:false
+  }
+
   participate(activity:Activity) {
     let current_user = this.current_user();
     for(let participation of this.participations){

@@ -12,11 +12,12 @@
       <th class="col-md-3">Adresse</th>
       <th class="col-md-1">Tournoi</th>
       <th class="col-md-1">Participation</th>
+      <th *ngIf="is_admin()">Supprimer</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr *ngFor="let activity of activities;let i =index;" (click)="deleteActivity(activity,i)">
+    <tr *ngFor="let activity of activities;let i =index;">
       <td>{{activity.name}}</td>
       <td>{{activity.nameSport}}</td>
       <td>{{activity.date}}</td>
@@ -30,8 +31,10 @@
           <input type="button" value="Participer" (click)="to_participate(activity)">
         </ng-template>        
       </td>
+      <td *ngIf="is_admin()">
+        <input type="button" value="Supprimer" (click)="deleteActivity(activity,i)">
+      </td>
     </tr>
-
     </tbody>
   </table>
 </div>
