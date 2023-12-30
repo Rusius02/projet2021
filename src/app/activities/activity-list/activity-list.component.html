@@ -23,23 +23,12 @@
       <td>{{activity.lieu}}</td>
       <td><input type="checkbox" [(ngModel)]="activity.isTournament" disabled></td>
       <td>
-        <span *ngIf="booleanParticipationC()"></span>
-
-        <span *ngFor="let participation of this.participations;">
-
-          <span *ngIf="booleanParticipation===false">
-
-            <span *ngIf="booleanParticipationChange(participation, activity)">
-              <span>OUI</span>
-            </span>
-
-          </span>
-
+        <span *ngIf="participate(activity) else not_participate">
+          Oui
         </span>
-
-        <span *ngIf="booleanParticipation===false">
-              <input type="button" value="Participer" (click)="participate(activity)">
-        </span>
+        <ng-template #not_participate>
+          <input type="button" value="Participer" (click)="to_participate(activity)">
+        </ng-template>        
       </td>
     </tr>
 

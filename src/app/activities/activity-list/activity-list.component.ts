@@ -55,7 +55,7 @@ export class ActivityListComponent implements OnInit {
   }
 
   //Add a participation
-  participate(activity:Activity) {
+  to_participate(activity:Activity) {
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken());
     if(tokenDecoded == null) {
       alert("Vous n'êtes pas connecté !");
@@ -80,4 +80,24 @@ export class ActivityListComponent implements OnInit {
       }
     }
   }
+
+  current_user(){
+    for (let user of this.users) {
+        if (user.id==this.idUserToken) {
+          return user
+        }
+    }
+    return undefined
+  }
+
+  participate(activity:Activity) {
+    let current_user = this.current_user();
+    for(let participation of this.participations){
+      if (participation.idUser == current_user?.id && participation.idActivity== activity.id) {
+        return true
+      }
+    }
+    return false
+  }
+
 }
