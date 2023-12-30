@@ -22,17 +22,24 @@
       <td>{{activity.nameSport}}</td>
       <td>{{activity.date}}</td>
       <td>{{activity.lieu}}</td>
-      <td><input type="checkbox" [(ngModel)]="activity.isTournament" disabled></td>
+      <td>
+        <span *ngIf="activity.isTournament else not_tournament"><i class="fa-solid fa-check center-elements"></i></span>
+        <ng-template #not_tournament><i class="fa-solid fa-xmark center-elements"></i></ng-template>
+      </td>
       <td>
         <span *ngIf="participate(activity) else not_participate">
-          Oui
+          <i class="fa-solid fa-user-check center-elements"></i>
         </span>
         <ng-template #not_participate>
-          <input type="button" value="Participer" (click)="to_participate(activity)">
+          <div class="center-elements">
+            <input type="button" value="Participer" (click)="to_participate(activity)">
+          </div>
         </ng-template>        
       </td>
       <td *ngIf="is_admin()">
-        <input type="button" value="Supprimer" (click)="deleteActivity(activity,i)">
+        <div class="center-elements">
+          <button (click)="deleteActivity(activity,i)"><i class="fa-solid fa-trash"></i></button>
+        </div>
       </td>
     </tr>
     </tbody>
