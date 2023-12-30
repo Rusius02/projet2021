@@ -1,28 +1,35 @@
-<div id="container">
-<div id="map"></div>
-
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
+<br>
+
+<h1 class="center-elements title">Planning des activités</h1>
+
+<br>
+
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNCgVdE00yH0nBRSpM7k9Qm-5qqKTqD0A&callback=initMap&v=weekly"
   async
 ></script>
 
-<agm-map [longitude]="activities[0].longitude" [latitude]="activities[0].lattitude" [zoom]="10">
+<div class="custom-container">
+    <div id="map">
+      <agm-map [longitude]="activities[0].longitude" [latitude]="activities[0].lattitude" [zoom]="10">
+        <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
+      </agm-map>
+  </div>
 
-  <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
-</agm-map>
   <div id="form-activity">
     <app-activity-form (activityCreated)="sendActivity($event)"></app-activity-form>
   </div>
-  <div>
-    <app-activity-list [activities]="activities"
-                       [participations]="participations"
-                       [users]="users"
-                       (participationCreated)="sendParticipation($event);"
-                       (activityDeleted)="deleteActivity($event);"
-    ></app-activity-list>
-  </div>
-
-
 </div>
 
+
+<div id="activity-list">
+  <app-activity-list 
+    [activities]="activities"
+    [participations]="participations"
+    [users]="users"
+    (participationCreated)="sendParticipation($event);"
+    (activityDeleted)="deleteActivity($event);"
+  ></app-activity-list>
+</div>

@@ -1,6 +1,10 @@
 <div id="form">
   <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="emitActivityCreation()">
     <div id="inForm">
+      <h2 class="center-elements">Ajouter une activité :</h2>
+      
+      <br>
+      
       <label>Nom* :</label> <input type="text" formControlName="name"><br>
 
       <div *ngIf="getName().touched && getName().invalid">
@@ -33,8 +37,12 @@
 
       <label>Tournoi* ? : </label><input type="checkbox" formControlName="isTournament"><br>
 
-      <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button"><br><br>
-      *Obligatoires
+      <br>
+      
+      <div class="center-elements">
+        <input type="submit" [disabled]="form.invalid" value="Ajouter" id="button">
+      </div>
+      <span id="definition-asterisk">*Obligatoires</span>
     </div>
   </form>
 </div>

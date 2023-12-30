@@ -6,7 +6,6 @@
   <table class="tabActivities">
     <thead>
     <tr>
-      <th>Id</th>
       <th>Title</th>
       <th>Sport</th>
       <th>Date</th>
@@ -18,7 +17,6 @@
     <tbody>
 
     <tr *ngFor="let activity of activities;let i =index;" (click)="deleteActivity(activity,i)">
-      <td>{{activity.id}}</td>
       <td>{{activity.name}}</td>
       <td>{{activity.nameSport}}</td>
       <td>{{activity.date}}</td>

@@ -1,25 +1,35 @@
-#container{
+.custom-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 20px;
+}
+#map{
+  width: 70%;
 }
 agm-map{
-  display: block;
-  justify-content: initial;
-  align-items: center;
-  height:550px ;
-  min-width: 55%;
-
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  position: center;
+  height:550px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  justify-content: center;
 }
 #activity{
   border: #111111 2px;
   margin: 3px;
   padding: 2px;
 }
+#form-activity{
+  width: 30%;
+}
 
+.center-elements{
+  display: flex;
+  justify-content: center;
+}
 
-
+.title{
+  font-family: cursive;
+  font-size: 30px;
+  text-decoration: underline;
+}

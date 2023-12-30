@@ -4,9 +4,9 @@
   box-shadow: 0 5px 50px rgba(0,0,0,0.15);
   cursor: pointer;
   border: 2px solid #000000;
-  margin-left: -150%;
   font-size: 18px;
-  margin-top: 600px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 thead tr{
   background-color: #333333;
@@ -38,5 +38,3 @@ span#participate
   align-items:center;
   background-color: #6e6e6e;
 }
-
-
