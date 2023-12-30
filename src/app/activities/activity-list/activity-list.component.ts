@@ -71,15 +71,13 @@ export class ActivityListComponent implements OnInit {
 
   //Delete activity if user is admin
   deleteActivity(activity : Activity, i:number) {
-  for (let user of this.users) {
-    if (user.role == "admin" &&user.id==this.idUserToken) {
-      alert("Suppresion de " + activity.name);
-      this.activityDeleted.next(this.activities[i]);
+    for (let user of this.users) {
+      if (user.role == "admin" &&user.id==this.idUserToken) {
+        let confirmation = confirm("Suppresion de " + activity.name);
+        if (confirmation == true){
+          this.activityDeleted.next(this.activities[i]);  
+        }
+      }
     }
   }
-
-
-  }
-
-
 }
