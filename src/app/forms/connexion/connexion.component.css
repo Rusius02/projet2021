@@ -8,6 +8,7 @@ label
 
 div#form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 200px;
@@ -38,5 +39,6 @@ input#button {
 #button:hover{
   background-color: #18a22f;
 }
+
 
 
