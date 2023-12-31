@@ -1,39 +1,28 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-<!--  <ul>-->
-<!--    <li><a routerLink="activity">Activités</a></li>-->
-<!--    <li><a routerLink="post">Posts</a></li>-->
-<!--    <li><a routerLink="chat">Messages</a></li>-->
-<!--    <li><a>Compte</a>-->
-<!--      <ul class="sous">-->
-<!--        <li><a routerLink="inscription">Inscription</a></li>-->
-<!--        <li><a routerLink="connexion" [hidden]="isLoggedIn">Connexion</a></li>-->
-<!--        <li><a (click)="logout()" [hidden]="!isLoggedIn">Déconnexion</a></li>-->
-<!--      </ul>-->
-<!--    </li>-->
-<!--    <li><a href="#">A propos</a></li>-->
-<!--  </ul>-->
-  <a class="navbar-brand" href="#">SportMap</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-xxl-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="activity">Activités</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="post">Posts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="chat">Messages</a>
-      </li>
-      <li class="nav-item">
-        <a  *ngIf="isLoggedIn" class="nav-link" routerLink="inscription">Mon Compte</a>
-        <a *ngIf="!isLoggedIn" class="nav-link" routerLink="connexion">Mon Compte</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()" [hidden]="!isLoggedIn">Déconnexion</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">SportMap</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="activity">Activités</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="post">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="chat">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="isLoggedIn" class="nav-link" routerLink="inscription">Mon Compte</a>
+          <a *ngIf="!isLoggedIn" class="nav-link" routerLink="connexion">Mon Compte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" [hidden]="!isLoggedIn">Déconnexion</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 

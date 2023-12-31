@@ -18,3 +18,9 @@ li:last-child {
 nav > ul li:hover .sous{
   display: inline-block;
 }
+
+ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
