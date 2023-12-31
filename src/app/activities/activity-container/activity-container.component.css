@@ -22,12 +22,6 @@ agm-map{
 #form-activity{
   width: 30%;
 }
-
-.center-elements{
-  display: flex;
-  justify-content: center;
-}
-
 .title{
   font-family: cursive;
   font-size: 30px;
