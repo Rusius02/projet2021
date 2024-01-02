@@ -97,7 +97,7 @@ export class ActivityFormComponent implements OnInit {
       lattitude: 50.420777,
       longitude:4.166669,
       sport:"Volley",
-      date: "2022-01-12T17:12",
+      date: "2023-02-15T17:12",
       isTournament: false
     })
   }
