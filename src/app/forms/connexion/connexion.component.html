@@ -1,24 +1,31 @@
 <div id="form" >
   <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="loginProcess()">
     <div id="inForm">
-    <p>
-      <label>
-        Pseudo :
-      </label>
-      <input type="text" formControlName="pseudo">
-    </p>
-    <p>
-      <label>
-        Mot de passe :
-      </label>
-      <input type="password" formControlName="password">
-    </p>
-      <input type="submit" value="Se connecter" id="button">
-  </div>
+      <div class="text-center color-font">
+        <h3>Connexion</h3>
+      </div>
+      <br>
+      <p>
+        <label class="color-font">
+          Pseudo :
+        </label>
+        <input type="text" formControlName="pseudo">
+      </p>
+      <p>
+        <label class="color-font">
+          Mot de passe :
+        </label>
+        <input type="password" formControlName="password">
+      </p>
+      <div class="text-center">
+        <input type="submit" value="Se connecter" id="button">
+      </div>
+      
+    </div>
   </form>
   <div>
     Si vous n'avez pas de compte,
-    <a routerLink="/inscription">Inscrivez-vous</a>
+    <a routerLink="/inscription">inscrivez-vous</a>
   </div>
 </div>
 
