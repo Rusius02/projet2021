@@ -1,39 +1,53 @@
 <div id="form">
   <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="emitActivityCreation()">
     <div id="inForm">
-      <h2 class="title text-center">Ajouter une activité :</h2>
+      <h3 class="title text-center">Ajouter une activité :</h3>
+      
+      <span *ngIf="getName().touched && getName().invalid else not_error" class="error-message">
+        Ce champ est incorrect!
+      </span>   
       
       <br>
       
-      <label>Nom* :</label> <input type="text" formControlName="name"><br>
+      <label>Nom* :</label> <input type="text" formControlName="name">
+      
+      <br>
 
-      <div *ngIf="getName().touched && getName().invalid">
-        Le champ "Nom" est incorrect!
-      </div><br>
+      
+      <span *ngIf="getPlace().touched && getPlace().invalid" class="error-message">
+        Ce champ est incorrect!
+      </span>
 
-      <label>Lieu* : </label><input type="text" formControlName="place"><br>
+      <br>
 
-      <div *ngIf="getPlace().touched && getPlace().invalid">
-        Le champ "Lieu" est incorrect!
-      </div><br>
+      <label>Lieu* : </label><input type="text" formControlName="place">
+      
+      <br><br>
 
-      <label>Latitude : </label><input type="number" formControlName="lattitude"><br><br>
+      <label>Latitude : </label><input type="number" formControlName="lattitude">
+      
+      <br><br>
 
-      <label>Longitude : </label><input type="number" formControlName="longitude"><br><br>
+      <label>Longitude : </label><input type="number" formControlName="longitude">
+      
+      <br>
 
-      <label>Date et heure* : </label><input type="datetime-local" formControlName="date"><br>
+      <span *ngIf="getDate().touched && getDate().invalid" class="error-message">
+        Ce champ est incorrect!
+      </span>
+      
+      <br>
 
-      <div *ngIf="getDate().touched && getDate().invalid">
-        Le champ "Date" est incorrect!
-      </div><br>
+      <label>Date et heure* : </label><input type="datetime-local" formControlName="date">
+      
+      <br><br>
 
-      <label>Sport* : </label><select formControlName="sport">
-      <option *ngFor="let sport of sports">{{sport.name}}</option>
-    </select><br>
-
-      <div *ngIf="getSport().touched && getSport().invalid">
-        Le champ "Sport" est incorrect!
-      </div><br>
+      <label>Sport* : </label>
+      <select formControlName="sport">
+        <option *ngFor="let sport of sports">{{sport.name}}</option>
+      </select>
+      
+      <br><br>
 
       <label>Tournoi* ? : </label><input type="checkbox" formControlName="isTournament"><br>
 
@@ -47,6 +61,6 @@
   </form>
 </div>
 
-
-
-
+<ng-template #not_error>
+  <span></span>
+</ng-template>
