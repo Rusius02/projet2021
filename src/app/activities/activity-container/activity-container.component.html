@@ -9,18 +9,6 @@
   async
 ></script>
 
-<div class="custom-container">
-    <div id="map">
-      <agm-map [longitude]="activities[0].longitude" [latitude]="activities[0].lattitude" [zoom]="10">
-        <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
-      </agm-map>
-  </div>
-
-  <div id="form-activity">
-    <app-activity-form (activityCreated)="sendActivity($event)"></app-activity-form>
-  </div>
-</div>
-
 <br>
 
 <div id="activity-list">
@@ -31,6 +19,20 @@
     (participationCreated)="sendParticipation($event);"
     (activityDeleted)="deleteActivity($event);"
   ></app-activity-list>
+</div>
+
+<br>
+
+<div class="custom-container">
+    <div id="map">
+      <agm-map [longitude]="activities[0].longitude" [latitude]="activities[0].lattitude" [zoom]="10">
+        <agm-marker *ngFor="let activity of activities; let i=index;" [longitude]="activity.longitude" [latitude]="activity.lattitude"></agm-marker>
+      </agm-map>
+  </div>
+
+  <div id="form-activity">
+    <app-activity-form (activityCreated)="sendActivity($event)"></app-activity-form>
+  </div>
 </div>
 
 <br>

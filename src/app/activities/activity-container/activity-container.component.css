@@ -1,3 +1,6 @@
+* {
+  font-size: 14px;
+}
 .custom-container{
   display: flex;
   flex-direction: row;
@@ -8,7 +11,7 @@
   width: 70%;
 }
 agm-map{
-  height:600px;
+  height:475px;
   width: 100%;
   padding-left: 2%;
   display: flex;
@@ -23,7 +26,7 @@ agm-map{
   width: 30%;
 }
 .title{
-  font-family: cursive;
-  font-size: 30px;
+  font-size: 25px;
   text-decoration: underline;
+  font-family: cursive;
 }
