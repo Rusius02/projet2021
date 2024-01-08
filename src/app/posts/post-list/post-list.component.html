@@ -1,37 +1,45 @@
-<div *ngIf="posts.length === 0">
-  <b>Il n'y a pas de posts :-/</b>
+<br>
+<div class="text-center" *ngIf="posts.length === 0">
+  <br>
+  <b>Il n'y a pas de post</b>
 </div>
-
-<div id="list" *ngIf="posts.length > 0 && setHiddenPost()">
-    <span *ngFor="let post of posts, let i = index;">
-      <span *ngFor="let user of users, let j = index;">
-        <span *ngIf="user.id===post.idUser">
-           <div id="post" >
-              <span id="user">{{user.pseudo}}</span>
-              <input type="submit" value="Supprimer" id="delete" [hidden]="changeHidden(post)" (click)="deletePost(post, user, i)">
-              <br>
-              <div id="date">{{post.uploadDate?.replace('T',' à ')}}</div>
-              <br>
-              <div id="text">{{post.message}}</div>
-           </div>
-          <span *ngFor="let comment of comments, let k = index;">
-            <span *ngIf="post.id===comment.idPost">
-              <span *ngFor="let userComment of users, let l = index;">
-                <span *ngIf="comment.idUser===userComment.id">
-                  <div id="comment">{{userComment.pseudo}} : "{{comment.text}}" à {{comment.uploadDate}}
-                      <input type="submit" value="Supprimer" id="deleteComment" [hidden]="changeHiddenComment(comment)" (click)="deleteComment(k)">
-                  </div>
-                </span>
-              </span>
-            </span>
-          </span>
-          <div id="addComment">
-            <form [formGroup]="form" (ngSubmit)="emitCommentCreation(post.id||-1)">
-                 <input type="text" formControlName="text" placeholder="Écrivez un commentaire">
-                <input type="submit" value="Commenter" [disabled]="form.invalid">
-            </form>
+<div class="container-custom">
+  <div id="list" *ngIf="posts.length > 0 && setHiddenPost()">
+    <div *ngFor="let post of reverse(getPosts(posts, users)), let i = index;" style="margin-bottom: 10px; background-color: #b0b0b0; border-radius: 10px;">
+      <div id="post">
+        <div style="display: flex; justify-content: space-between;">
+          <div style="display: flex;">
+            <span class="bubble">{{getPseudoUserOfPost(post, users).charAt(0)}}</span>
+            <span style="margin-left: 5px;" class="user">{{getPseudoUserOfPost(post, users)}}</span>
           </div>
-        </span>
-      </span>
-    </span>
+          <button *ngIf="getUserOfPost(post, users) !== undefined" class="btn-default-custom delete" type="submit" [hidden]="changeHidden(post)" (click)="deletePost(post, getUserOfPost(post, users)!, i)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+        <span id="date" style="margin-left: 40px;">{{ post.uploadDate ? convertDate(post.uploadDate) : 'Date non définie' }}</span>             
+        <br><br>
+        <div id="text">{{post.message}}</div>
+      </div>
+      <div *ngFor="let comment of getComments(post, comments, users), let k = index;" style="display: flex; justify-content: center;">
+        <div id="comment" style="border-radius: 20px; width: 95%;">
+          <div style="display: flex; justify-content: space-between;">
+            <div><span class="bubble">{{getPseudoUserOfComment(comment, users).charAt(0)}}</span><span style="margin-left: 5px;" class="user">{{getPseudoUserOfComment(comment, users)}}</span></div>
+            <button type="submit" class="btn-default-custom delete" id="deleteComment" [hidden]="changeHiddenComment(comment)" (click)="deleteComment(k)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+
+          <div style="margin-left: 40px;">{{ comment.uploadDate ? convertDate(comment.uploadDate) : 'Date non définie' }}</div>
+          <div>{{comment.text}}</div>
+
+        </div>
+      </div>
+      <div id="addComment">
+        <form [formGroup]="form" (ngSubmit)="emitCommentCreation(post.id||-1)">
+            <input style="width: 93%;" type="text" formControlName="text" placeholder="Écrivez un commentaire">
+            <button style="border: none; background: none; padding: 0; cursor: pointer; margin-left: 2px; margin-top: 2px;" type="submit" [disabled]="form.invalid"><i class="fa-solid fa-location-arrow" style="font-size: 30px; transform: rotate(45deg); color: #50b6ff;"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

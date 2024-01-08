@@ -1,6 +1,10 @@
-<form [formGroup]="form" (ngSubmit)="emitPostCreation()">
-  <label>
+<br>
+<div style="display: flex; justify-content: center;">
+  <form [formGroup]="form" (ngSubmit)="emitPostCreation()" style="width: 50%;">
+  <div class="container-custom">
     <input type="text" formControlName="message" placeholder="Quoi de neuf ?" >
-    <input type="submit" value="Publier" [disabled]="form.invalid">
-  </label>
+    <input style="margin-left: 5px;" class="btn-default-custom" type="submit" value="Publier" [disabled]="form.invalid">
+  </div>
 </form>
+</div>
+

@@ -1,22 +1,22 @@
-body{
-  background-color: dimgrey;
-}
 li:last-child {
   border-right: none;
 }
 
-
-/* Change the link color to #111 (black) on hover */
-
-
-
 .sous{
   display: none;
   float: revert;
- width: 250%;
+  width: 250%;
 }
 nav > ul li:hover .sous{
   display: inline-block;
+}
+
+nav {
+  background-color: #292929 !important;
+}
+
+a {
+  color: #fff !important;
 }
 
 ul {

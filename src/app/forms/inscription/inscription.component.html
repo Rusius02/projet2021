@@ -1,6 +1,10 @@
 <div id="form">
   <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="sendUser($event)">
     <div id="inForm">
+      <div class="text-center">
+        <h3>Inscription</h3>
+      </div>
+
       <br>
 
       <label> Pseudo : </label><input type="text" formControlName="pseudo"><br>
@@ -59,7 +63,12 @@
         Le champ "Mot de passe" est incorrect! Entre 8 et 20 caractères
       </div>
       <br>
-      <input type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">
+      <input class="btn-default-custom" type="submit" [disabled]="form.invalid" value="S'inscrire" id="button">
+      <br><br>
+      <div class="text-center">
+        Si vous avez un compte,
+        <a routerLink="/connexion">connectez-vous</a>
+      </div>
     </div>
   </form>
 </div>

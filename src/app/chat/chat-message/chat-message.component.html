@@ -1,22 +1,20 @@
-
-
-<div id="list" *ngIf="messages.length>0">
-    <span *ngFor="let message of messages">
-      <span *ngFor="let user of users;">
-        <span *ngIf="message.idUser===user.id">
-
-        <div *ngIf="message.idUser===idUserToken; else elseBlock">
-          <div id="dateUser">{{message.uploadDate?.replace('T',' à ')}}</div>
-          <div id="textUser">{{message.text}}</div>
-          <div id="idUser">{{user.pseudo}}</div>
+<div id="list" *ngIf="messages.length>0" class="scrollable overflow-auto">
+  <span *ngFor="let message of reverse(messages)">
+    <span *ngFor="let user of users;">
+      <span *ngIf="message.idUser===user.id">
+      <div *ngIf="message.idUser===idUserToken; else elseBlock" style="text-align: end; margin-bottom: 2px;">
+        <span id="idUser" class="stokes-right">{{user.pseudo}}</span>
+        <div><span id="textUser" class="message" style="margin-right: 0.5%;">{{message.text}}</span><span class="bubble">{{ user.pseudo.charAt(0) }}</span></div>
+        <span class="date stokes-right" id="dateUser">{{ message.uploadDate ? convertDate(message.uploadDate) : 'Date non définie' }}</span>
+      </div>
+      <ng-template #elseBlock>
+        <div style="margin-bottom: 2px;">
+          <span id="idOther" class="stokes-left">{{user.pseudo}}</span>
+          <div><span class="bubble">{{ user.pseudo.charAt(0) }}</span><span id="textOther" class="message" style="margin-left: 0.5%;">{{message.text}}</span></div>
+          <span class="date stokes-left" id="dateOther">{{ message.uploadDate ? convertDate(message.uploadDate) : 'Date non définie' }}</span>            
         </div>
-        <ng-template #elseBlock>
-            <div id="dateOther">{{message.uploadDate?.replace('T',' à ')}}</div>
-            <div id="textOther">{{message.text}}</div>
-            <div id="idOther">{{user.pseudo}}</div>
-        </ng-template>
-        </span>
+      </ng-template>
       </span>
     </span>
-
+  </span>
 </div>

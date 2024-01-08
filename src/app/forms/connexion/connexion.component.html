@@ -1,7 +1,7 @@
 <div id="form" >
   <form [formGroup]="form" (dblclick)="autoComplete()" (ngSubmit)="loginProcess()">
     <div id="inForm">
-      <div class="text-center color-font">
+      <div class="text-center">
         <h3>Connexion</h3>
       </div>
       <br>
@@ -17,16 +17,18 @@
         </label>
         <input type="password" formControlName="password">
       </p>
+      <br>
       <div class="text-center">
-        <input type="submit" value="Se connecter" id="button">
+        <input class="btn-default-custom" type="submit" value="Se connecter" id="button">
       </div>
-      
+      <br><br>
+      <div class="text-center">
+        Si vous n'avez pas de compte,
+        <a routerLink="/inscription">inscrivez-vous</a>
+      </div>
     </div>
   </form>
-  <div>
-    Si vous n'avez pas de compte,
-    <a routerLink="/inscription">inscrivez-vous</a>
-  </div>
+  
 </div>
 
 

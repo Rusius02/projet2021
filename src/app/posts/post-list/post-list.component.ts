@@ -112,10 +112,128 @@ export class PostListComponent implements OnInit {
 
   setHiddenPost() {
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
-    console.log(tokenDecoded);
     if(tokenDecoded ==null) {
       this.hiddenPost = false;
     }
     return this.hiddenPost;
   }
+
+  parseCustomDate(dateString: string): Date {
+    if (!dateString) {
+      return new Date(); // Retourne la date actuelle si dateString est undefined
+    }
+
+    const parts = dateString.split(' ');
+    if (parts.length !== 2) {
+      return new Date(); // Retourne la date actuelle si le format est incorrect
+    }
+
+    const [dayMonthYear, time] = parts;
+    const [day, month, year] = dayMonthYear.split('/');
+    const [hours, minutes, seconds] = time.split(':');
+
+    return new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+  }
+
+  convertDate(dateString: string): string {
+    if (!dateString) {
+      return 'Date non définie';
+    }
+
+    const currentDate = new Date();
+    const date = this.parseCustomDate(dateString);
+    const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const dayOfWeek = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+
+    // Si c'est aujourd'hui
+    if (date.toDateString() === today.toDateString()) {
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${hours}:${minutes}`;
+    }
+
+    // Si c'était cette semaine
+    if (date > new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000)) {
+      const day = dayOfWeek[date.getDay()];
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${day} ${hours}:${minutes}`;
+    }
+
+    // Si c'était cette année
+    if (date.getFullYear() === currentDate.getFullYear()) {
+      const month = new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(date);
+      const day = date.getDate();
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${day} ${month}, ${hours}:${minutes}`;
+    }
+
+    // Si c'était avant cette année
+    const month = new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(date);
+    const year = date.getFullYear();
+    const day = date.getDate();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${day} ${month} ${year}, ${hours}:${minutes}`;
+  }
+  
+  reverse(posts: Post[]): Post[] {
+    return posts.reverse();
+  }
+
+  getPosts(posts: Post[], users: User[]): Post[] {
+    let posts_user=[]
+    for (let post of posts) {
+      for (let user of users) {
+        if (user.id===post.idUser) {
+          posts_user.push(post);
+        }
+      }
+    }
+    return posts;
+  }
+
+  getComments(post: Post, comments: Comment[], users: User[]): Comment[] {
+    let comments_user=[]
+    for (let comment of comments) {
+      if (post.id===comment.idPost) {
+        for (let user of users) {
+          if (user.id===comment.idUser) {
+            comments_user.push(comment);
+          }
+        } 
+      }
+    }
+    return comments_user;
+  }
+
+  getUserOfComment(comment: Comment, users: User[]): User|undefined {
+    for (let user of users) {
+      if (user.id===comment.idUser) {
+        return user;
+      }
+    } 
+    return undefined
+  }
+
+  getPseudoUserOfComment(comment:Comment, users: User[]): string{
+    let user =  this.getUserOfComment(comment, users)
+    return user ? user.pseudo : ""; 
+  }
+
+  getUserOfPost(post: Post, users: User[]): User|undefined {
+    for (let user of users) {
+      if (user.id===post.idUser) {
+        return user;
+      }
+    } 
+    return undefined
+  }
+
+  getPseudoUserOfPost(post: Post, users: User[]): string{
+    let user =  this.getUserOfPost(post, users)
+    return user ? user.pseudo : ""; 
+  }
+
 }

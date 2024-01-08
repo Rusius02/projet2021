@@ -56,7 +56,6 @@ export class ChatDiscussionComponent implements OnInit {
     user:this.fb.control('',Validators.required)
   });
 
-
   constructor(private messageService: MessageService,
               private userService:UserService,
               private fb:FormBuilder,
@@ -67,7 +66,6 @@ export class ChatDiscussionComponent implements OnInit {
     this.getAllUsers();
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
     this.idUserToken = Number(tokenDecoded.nameid);
-
   }
 
   //retrieves messages when a conversation is clicked on
@@ -88,12 +86,12 @@ export class ChatDiscussionComponent implements OnInit {
   //creates a message
   emitMessageCreation(idDiscussion:number) {
     var tokenDecoded = this.tokenStorage.getDecodedToken( this.tokenStorage.getToken())
-    alert("'"+this.form.value.message + "' envoyé");
     this.messageCreated.next({
       text: this.form.value.message,
       idUser:Number(tokenDecoded.nameid),
       idDiscussion:idDiscussion
     });
+    alert("'"+this.form.value.message + "' envoyé");
     this.clear();
   }
 
@@ -169,4 +167,35 @@ export class ChatDiscussionComponent implements OnInit {
   private clearDiscussion() {
     this.formDiscussion.reset();
   }
+
+  current_user(){
+    for (let user of this.users) {
+        if (user.id==this.idUserToken) {
+          return user
+        }
+    }
+    return undefined
+  }
+
+  getUserPseudo(): string|undefined {
+    const user = this.current_user();
+    if (user) {
+      return user.pseudo.charAt(0);
+    } else {
+      return undefined;
+    }
+  }
+
+  discussionOfUser(discussions:Discussion[]): Discussion[] {
+    let discussions_user = []
+    for (let discussion of discussions) {
+        for (let userDiscussion of this.userDiscussions) {
+          if (discussion.idDiscussion==userDiscussion.idDiscussion && userDiscussion.idUser==this.idUserToken){
+            discussions_user.push(discussion);
+          }
+        }
+    }
+    return discussions_user;
+  } 
+
 }

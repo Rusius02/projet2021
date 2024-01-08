@@ -1,5 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background-color: dimgrey;
-  margin: 2px;
+  background-color: #333 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+}
+thead tr{
+  background-color: #494848;
+  text-align: left;
+}
+th, td{
+  padding: 6px 8px;
+  max-width: 400px;
+}
+tbody tr, td{
+  border: 1px solid #545353;
+  background-color: #5e5d5d;
+}
+
+th{
+  border: 1px solid #545353;
+}
+
+tbody tr:hover {
+  transform: scale(1.01, 1.01);
+}
+
+.bubble{
+  display: inline-block;
+  padding: 4px 13px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #000;
+}
+
+.btn-default-custom{
+  padding: 3px;
+  border: 1px solid #F5C5C5;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px #C0C0C0 inset;
+  background-color: #8a8a8a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px;
 }

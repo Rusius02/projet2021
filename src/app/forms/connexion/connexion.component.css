@@ -4,21 +4,16 @@ label{
   float: left;
 }
 
-.color-font{
-  color: #e9f4fb;
-}
-
 div#form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
-  font-size: 18px;
+  margin-top: 3%;
 }
 
 div#inForm {
-  padding: 30px;
+  padding: 10px 30px;
   border: solid;
   border-color: #bbbbbb;
   background-color: #5e5d5d;
@@ -26,17 +21,5 @@ div#inForm {
 }
 
 input#button {
-  border-radius: 50px;
   width: 120px;
-  height: 40px;
-  border: 1px solid;
-  background: #2691d9;
-  border-radius: 25px;
-  font-size: 18px;
-  color: #e9f4fb;
-  cursor: pointer;
-}
-
-#button:hover{
-  background-color: #18a22f;
 }

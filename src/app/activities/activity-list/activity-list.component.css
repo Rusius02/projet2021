@@ -1,40 +1,26 @@
 .tabActivities{
-  color: #ffffff;
   border-collapse: collapse;
   box-shadow: 0 5px 50px rgba(0,0,0,0.15);
   border: 2px solid #000000;
   margin-left: 1.5%;
   margin-right: 1.5%;
+  width: 97%;
 }
 thead tr{
-  background-color: #333333;
+  background-color: #494848;
   text-align: left;
 }
-th, td{
-  padding: 6px 8px;
-  max-width: 400px;
-}
 tbody tr, td{
-  border: 1px solid #5e5d5d;
-  color: #111111;
+  border: 1px solid #545353;
+  background-color: #5e5d5d;
 }
 
 th{
-  border: 1px solid #5e5d5d;
-  color: #e9f4fb;
+  border: 1px solid #545353;
 }
 
 tbody tr:hover {
   transform: scale(1.01, 1.01);
-  background-color: #c2c2c2;
-}
-
-span#participate
-{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  background-color: #6e6e6e;
 }
 
 .center-elements{

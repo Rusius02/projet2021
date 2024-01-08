@@ -1,11 +1,14 @@
 body {
   font-family: cursive;
-  font-size: 30px;
+  font-size: 25px;
 }
 p{
   padding-top: 1%;
   padding-left: 1%;
   padding-right: 1%;
+}
+#introduction{
+  font-size: 20px;
 }
 #conclusion{
   font-size: 12px;
@@ -13,6 +16,8 @@ p{
 .image{
   min-width: 400px;
   min-height: 267px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 #imagebasket{
   background-image: url("images/basket.jpg");
@@ -34,4 +39,15 @@ p{
 }
 #imagecyclisme{
   background-image: url("images/cyclisme.jpg");
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

@@ -1,134 +1,70 @@
 #container{
-  display: flex;
-  flex-direction: row;
   width: 100%;
+  display: flex;
 }
-
+#discussion-panel {
+  padding: 2%;
+  width: 40%;
+}
 .tabDiscussions{
-  color: #ffffff;
   border-collapse: collapse;
-  box-shadow: 0 5px 50px rgba(0,0,0,0.15);
   cursor: pointer;
-  border: 2px solid #000000;
-  font-size: 18px;
-  margin-left: 20%;
-  margin-top: 10%;
-  display: block;
-  justify-content: initial;
-  align-items: center;
-  min-width: 100%;
-}
-thead tr{
-  background-color: #333333;
-  text-align: left;
 }
 th, td{
-  padding: 6px 80px;
-}
-tbody tr, td{
-  border-bottom: 1px solid #5e5d5d;
-  color: #111111;
+  padding: 5px;
 }
 
-th{
-  border: 1px solid #5e5d5d;
-  color: #e9f4fb;
-}
-
-tbody:hover tr:hover, td:hover{
-  background-color: #c2c2c2;
-  transform: scale(1.01, 1.01);
-}
-
-div#empty
-{
+div#empty{
   margin: 10%;
 }
 
-app-chat-message {
-  margin-right: 10%;
-  margin-top: 5%;
-  align-self: flex-start;
+table{
+  width: 100%;
 }
 
-label
-{
-  display: flex;
-  margin-top: 20px;
-  margin-left: 45%;
-  padding: 30px;
-  width: 250%;
-  border: solid #bbbbbb;
-  border-radius: 10px;
-  background-color: #5e5d5d;
-  color: #e9f4fb;
-  font-size: 20px;
-}
-
-input#newMessage
-{
+input#newMessage{
   margin-left: 1%;
   padding:3px;
   border:1px solid #F5C5C5;
-  border-radius:5px;
+  border-radius:10px;
   box-shadow:1px 1px 2px #C0C0C0 inset;
-  min-width: 80%;
 }
 
-input#newDiscussion
-{
-
-}
-
-
-input[type=submit]
-{
-  margin-left: 1%;
-  padding:3px;
-  border:1px solid #F5C5C5;
-  border-radius:5px;
-  width:15%;
-  box-shadow:1px 1px 2px #C0C0C0 inset;
-  background-color: #8a8a8a;
-  color: white;
-  font-size: 80%;
-  font-weight: bold;
-  cursor: pointer;
+input[type=submit]{
   min-width: 80px;
+  font-size: 14px;
 }
 
 input[type=submit]#addDiscussion
 {
   min-width: 225px;
 }
-
-span#newDiscussion
-{
-  margin-left:-250px;
-  margin-top: 250px;
-  padding: 30px;
+#newDiscussion{
+  margin: 2%;
+  padding: 2%;
   border: solid #bbbbbb;
   border-radius: 10px;
   background-color: #5e5d5d;
-  color: #e9f4fb;
-  font-size: 20px;
-  width: 300px;
+  display: flex;
+  justify-content: center;
+  width: 60%;
 }
-
-.app-chat-message
-{
-
+#chat {
+  width: 60%;
+  padding: 2%;
 }
-
-div#title
-{
+#title{
   font-weight: bold;
-  margin-bottom: 5%;
+  font-size: 18px;
 }
-
-td#buttonNewDisussion
-{
-  background-color: #777777;
+#buttonNewDisussion{
+  width: 200px;
 }
-
-
+#add-user {
+  width: 50px;
+}
+.footer {
+  position: absolute;
+  bottom: 2%;
+  width: 56%;
+}

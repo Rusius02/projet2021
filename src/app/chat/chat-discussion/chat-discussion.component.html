@@ -1,60 +1,75 @@
 <div id="container">
-<div *ngIf="discussions.length === 0" id="empty">
-  <b>Il n'y a pas de discussions :-/</b>
-</div>
-<span id ="id" *ngIf="discussions.length>0">
-  <table class="tabDiscussions">
-    <thead>
-    <tr>
-      <th>Discussions</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <tr *ngFor="let discussion of discussions; let i=index;">
-       <span *ngFor="let userDiscussion of userDiscussions">
-          <span *ngIf="discussion.idDiscussion==userDiscussion.idDiscussion && userDiscussion.idUser==idUserToken">
-            <td (click)="emitDiscussionCreation(discussion)">{{discussion.name}}</td>
-          </span>
-       </span>
-    </tr>
-    <td id="buttonNewDisussion" (click)="hiddenNewDiscussion()">Nouvelle discussion</td>
-    </tbody>
-  </table>
-</span>
-
-  <span id="newDiscussion" [hidden]="hiddenNewD">
-    <form [formGroup]="formDiscussion">
-      <div id="title"> Nouvelle Discussion !</div>
-      <div>Nom de la discussion : </div>
-      <div><input type="text" formControlName="name" id="nameDiscussion"></div>
-      <div>Ajout d'utilisateurs : </div>
-      <select formControlName="user">
-        <option [defaultSelected]=""></option>
-        <option *ngFor="let user of users">
-          <span *ngIf="user.id!==this.idUserToken">
-            {{user.pseudo}}
-          </span>
-        </option>
-      </select>
-      <input type="submit" value="Ajouter" (click)="addUser()">
-
-    <div>Membres : </div>
-    <div *ngFor="let user of usersDiscussion">
-      {{user}}
+  <div *ngIf="discussions.length === 0" id="empty">
+    <b>Vous n'avez pas de discussion</b>
+  </div>
+  <div id ="discussion-panel" *ngIf="discussions.length>0">
+    <table class="tabDiscussions">
+      <thead>
+        <tr>
+          <th>Discussions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let discussion of discussionOfUser(discussions);">
+          <td (click)="emitDiscussionCreation(discussion)">{{discussion.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="text-center"><button class="btn-default-custom" id="buttonNewDisussion" (click)="hiddenNewDiscussion()">Nouvelle discussion</button></div>
+  </div>
+  
+  <div id="newDiscussion" [hidden]="hiddenNewD" style="display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: center;">
+      <div id="title" class="text-center"> Nouvelle Discussion :</div>
     </div>
-      <div *ngIf="this.usersDiscussion.length>0 && this.getName()">
-        <input type="submit" id="addDiscussion" value="Créer la nouvelle discussion" (click)="emitDiscussionAdd()">
+    <br>
+    <form [formGroup]="formDiscussion" style="display: flex; justify-content: space-around;">
+      <div>
+        <div>Nom de la discussion : </div>
+        <div><input type="text" formControlName="name" id="nameDiscussion"></div>
+        <br>
+        <div>Ajout d'utilisateurs : </div>
+        <span>
+          <select formControlName="user">
+            <option [defaultSelected]=""></option>
+            <option *ngFor="let user of users">
+              <span *ngIf="user.id!==this.idUserToken">
+                {{user.pseudo}}
+              </span>
+            </option>
+          </select>
+          <button style="margin-left: 5px;" id="add-user" type="submit" class="btn-default-custom" (click)="addUser()"><i class="fa-solid fa-user-plus" style="font-size: 80%; margin-top: 0;"></i></button>
+        </span>
+        
+      </div>
+      <div style="margin-left: 5px;">
+        <div>Membres : </div>
+        <div *ngFor="let user of usersDiscussion">
+          <span><i class="fa-solid fa-check"></i> {{user}}</span>
+        </div>
+        <br>
+        <div *ngIf="this.usersDiscussion.length>0 && this.getName()">
+          <input type="submit" class="btn-default-custom" id="addDiscussion" value="Créer la nouvelle discussion" (click)="emitDiscussionAdd()">
+        </div>
       </div>
     </form>
-  </span>
+  </div>
 
-  <form [formGroup]="form" (ngSubmit)="emitMessageCreation(this.idDiscussion)"  [hidden]="hiddennewM">
-    <label>
-      <input type="text" id="newMessage" formControlName="message" placeholder="Envoyez un message">
-      <input type="submit" value="Envoyer" [disabled]="form.invalid">
-    </label>
-  </form>
+  <div id="chat" [hidden]="hiddennewM">
+    <app-chat-message [messages]="messages" [users]="users" [hidden]="hiddenMessage"></app-chat-message>
+    <br>
+    <footer id="new-message" class="footer">
+      <form [formGroup]="form" (ngSubmit)="emitMessageCreation(this.idDiscussion)"  [hidden]="hiddennewM">
+        <div style="display: flex; justify-content: end;">
+          <span *ngIf="current_user" class="bubble">{{ getUserPseudo() }}</span>
+          <input type="text" id="newMessage" formControlName="message" placeholder="Envoyez un message" style="width: 75%;">
+          <button type="submit"[disabled]="form.invalid" style="border: none; background: none; padding: 0; cursor: pointer;margin-left: 0.2%;">
+            <i class="fa-solid fa-location-arrow" style="font-size: 30px; transform: rotate(45deg); color: #50b6ff;"></i>
+          </button>
+        </div>
+      </form>
+    </footer>
+  </div>
+
 </div>
-
-<app-chat-message [messages]="messages" [users]="users" [hidden]="hiddenMessage"></app-chat-message>
