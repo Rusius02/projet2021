@@ -16,7 +16,7 @@
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>
-        <span id="date" style="margin-left: 40px;">{{ post.uploadDate ? convertInDate(post.uploadDate) : 'Date non définie' }}</span>             
+        <span id="date-post" style="margin-left: 40px;">{{ post.uploadDate ? convertInDate(post.uploadDate) : 'Date non définie' }}</span>             
         <br><br>
         <div id="text">{{post.message}}</div>
       </div>
@@ -29,7 +29,7 @@
             </button>
           </div>
 
-          <div style="margin-left: 40px;">{{ comment.uploadDate ? convertDateFromDdMmYyyyFormat(comment.uploadDate) : 'Date non définie' }}</div>
+          <div id="date-comment" style="margin-left: 40px;">{{ comment.uploadDate ? convertDateFromDdMmYyyyFormat(comment.uploadDate) : 'Date non définie' }}</div>
           <div>{{comment.text}}</div>
 
         </div>

@@ -118,6 +118,7 @@ export class PostListComponent implements OnInit {
     return this.hiddenPost;
   }
 
+    // display date for post
   convertDate(dateString: string): string {
     const currentDate = new Date();
     const date = new Date(dateString);
@@ -161,6 +162,7 @@ export class PostListComponent implements OnInit {
     return this.convertDate(date.replace(' ','T'));
   }
 
+  // display date for comment 
   convertDateFromDdMmYyyyFormat(dateString: string): string {
     const [dateStr, timeStr] = dateString.split(' ');
     const [dayStr, monthStr, yearStr] = dateStr.split('/');
