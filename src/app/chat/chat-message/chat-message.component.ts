@@ -28,6 +28,7 @@ export class ChatMessageComponent implements OnInit {
   }
 
   convertDate(dateString: string): string {
+    console.log(dateString);
     const currentDate = new Date();
     const date = new Date(dateString);
     const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());

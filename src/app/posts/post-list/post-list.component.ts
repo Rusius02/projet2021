@@ -118,30 +118,9 @@ export class PostListComponent implements OnInit {
     return this.hiddenPost;
   }
 
-  parseCustomDate(dateString: string): Date {
-    if (!dateString) {
-      return new Date(); // Retourne la date actuelle si dateString est undefined
-    }
-
-    const parts = dateString.split(' ');
-    if (parts.length !== 2) {
-      return new Date(); // Retourne la date actuelle si le format est incorrect
-    }
-
-    const [dayMonthYear, time] = parts;
-    const [day, month, year] = dayMonthYear.split('/');
-    const [hours, minutes, seconds] = time.split(':');
-
-    return new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
-  }
-
   convertDate(dateString: string): string {
-    if (!dateString) {
-      return 'Date non définie';
-    }
-
     const currentDate = new Date();
-    const date = this.parseCustomDate(dateString);
+    const date = new Date(dateString);
     const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
     const dayOfWeek = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 
@@ -176,6 +155,66 @@ export class PostListComponent implements OnInit {
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
     return `${day} ${month} ${year}, ${hours}:${minutes}`;
+  }
+
+  convertInDate(date: string): string {
+    return this.convertDate(date.replace(' ','T'));
+  }
+
+  convertDateFromDdMmYyyyFormat(dateString: string): string {
+    const [dateStr, timeStr] = dateString.split(' ');
+    const [dayStr, monthStr, yearStr] = dateStr.split('/');
+    const [hoursStr, minutesStr, secondsStr] = timeStr.split(':');
+
+    const year = parseInt(yearStr, 10);
+    const month = parseInt(monthStr, 10) - 1; // Les mois commencent à 0
+    const day = parseInt(dayStr, 10);
+    const hours = parseInt(hoursStr, 10);
+    const minutes = parseInt(minutesStr, 10);
+    const seconds = parseInt(secondsStr, 10);
+
+    const date = new Date(year, month, day, hours, minutes, seconds);
+
+    if (isNaN(date.getTime())) {
+      return 'Date invalide';
+    }
+
+    const currentDate = new Date();
+    const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const dayOfWeek = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+
+    // Si c'est aujourd'hui
+    if (date.toDateString() === today.toDateString()) {
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${hours}:${minutes}`;
+    }
+
+    // Si c'était cette semaine
+    if (date > new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000)) {
+      const day = dayOfWeek[date.getDay()];
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${day} ${hours}:${minutes}`;
+    }
+
+    // Si c'était cette année ou avant
+    const formattedDate = this.formatDate(date);
+    return formattedDate;
+  }
+
+  formatDate(date: Date): string {
+    const day = date.getDate();
+    const month = this.getMonthName(date.getMonth());
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${day} ${month} ${year}, ${hours}:${minutes}`;
+  }
+
+  getMonthName(month: number): string {
+    const monthNames = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    return monthNames[month];
   }
   
   reverse(posts: Post[]): Post[] {
