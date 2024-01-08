@@ -7,6 +7,7 @@ import {AppRootingModule} from "./app-rooting.module";
 import { FormsComponent } from './forms/forms.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
 import { ConnexionComponent } from './forms/connexion/connexion.component';
+import {ProfilComponent} from "./forms/profil/profil.component";
 import {RouterModule} from "@angular/router";
 import { AboutComponent } from './forms/about/about.component';
 import { ActivitiesComponent } from './activities/activities.component';
@@ -30,6 +31,7 @@ import {JwtInterceptor} from "./_helpers";
     FormsComponent,
     InscriptionComponent,
     ConnexionComponent,
+    ProfilComponent,
     AboutComponent,
     ActivitiesComponent,
     ActivityContainerComponent,

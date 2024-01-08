@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h3>Profil</h3>
+        </div>
+        <div class="card-body">
+          <!-- Add your profile details here -->
+          <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" disabled>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nom</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" disabled>
+          </div>
+          <div class="form-group">
+            <label for="pseudo">Pseudo</label>
+            <input type="text" class="form-control" id="pseudo" [(ngModel)]="user.pseudo" disabled>
+          </div>
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input type="text" class="form-control" id="mail" [(ngModel)]="user.mail" disabled>
+          </div>
+          <div class="form-group">
+            <label for="birthDate">Date de Naissance</label>
+            <input type="text" class="form-control" id="birthDate" [(ngModel)]="user.birthDate" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

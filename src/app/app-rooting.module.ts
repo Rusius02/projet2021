@@ -6,10 +6,12 @@ import { AboutComponent } from './forms/about/about.component';
 import { PostsComponent } from './posts/posts.component';
 import {ActivitiesComponent} from "./activities/activities.component";
 import {ChatComponent} from "./chat/chat.component";
+import {ProfilComponent} from "./forms/profil/profil.component";
 
 const routes: Routes=[
   {path:'', pathMatch:'full', redirectTo:'about'},
   {path:'inscription', component: InscriptionComponent},
+  {path:'profil', component: ProfilComponent},
   {path:'activity', component: ActivitiesComponent},
   {path:'connexion', component: ConnexionComponent},
   {path:'about', component: AboutComponent},

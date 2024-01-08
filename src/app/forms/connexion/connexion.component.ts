@@ -41,8 +41,6 @@ export class ConnexionComponent implements OnInit {
       this.authService.login(this.form.value).subscribe(data=>{
         this.tokenStorage.saveToken(data);
         var tokenDecoded = this.tokenStorage.getDecodedToken( data)
-
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
@@ -79,19 +77,4 @@ export class ConnexionComponent implements OnInit {
     return this.form.controls;
   }
 
-  handleDivClick(event: Event) {
-    // Cette méthode est appelée lorsque l'utilisateur clique sur la div parente
-    // Vérifie si le clic a été effectué sur le lien lui-même
-    if (event.target instanceof HTMLAnchorElement) {
-      console.log('Clic sur le lien');
-    } else {
-      console.log('Clic en dehors du lien');
-    }
-  }
-
-  handleLinkClick(event: Event) {
-    // Cette méthode est appelée lorsque l'utilisateur clique sur le lien
-    // Vous pouvez ajouter du code supplémentaire ici si nécessaire
-    event.stopPropagation();
-  }
 }

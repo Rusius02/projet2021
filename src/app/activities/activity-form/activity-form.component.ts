@@ -94,8 +94,8 @@ export class ActivityFormComponent implements OnInit {
     this.form.patchValue({
       name:"Basketball fury",
       place:"Bd Alfred de Fontaine 330, 6000 Charleroi",
-      lattitude: 50.420777,
-      longitude:4.166669,
+      lattitude: 50.4102894,
+      longitude:4.4469553,
       sport:"Volley",
       date: "2023-02-15T17:12",
       isTournament: false

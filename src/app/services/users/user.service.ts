@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "../../model/user";
 
@@ -22,4 +22,10 @@ export class UserService {
   create(user:User):Observable<User>{
     return this.httpClient.post<User>(UserService.API_URL+"/Create", user);
   }
+
+  getUser(id:number):Observable<User>{
+      return this.httpClient.post<User>(UserService.API_URL+"/GetUser", id);
+  }
+
+
 }
