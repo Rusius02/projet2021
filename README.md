@@ -1,4 +1,8 @@
-# Projet2021
+# SportsMap
+
+School project made for web dev class in 2021. 
+
+SportsMap is a web app which allow users to create, search and participate to sport activity. A map is displayed with marks showing where activities are. The users can also discuss together.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
 
